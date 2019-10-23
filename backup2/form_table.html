@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, intial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Calibration Request Form</title>
+		<link rel="icon" href="static/icons/0.png" type="image/gif" sizes="16x16">
+		<link rel="stylesheet" href="plugin/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style_plexus.css">
+  </head>
+  
+  <style>
+      .mytable_sticky thead th { position: sticky; top: 0; background:white }
+  </style>
+
+
+<!------------------------------------------------ Body content goes here------------------------------ -->
+<body>
+	<!--------------------------------- Navbar Menu -->
+	<nav class="navbar navbar-light bg-danger justify-content-between">
+    <a class="navbar-brand text-white" href="index.html">Calibration Status Dashboard</a>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link text-white" href="index.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="form_table.html">Status</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-white" href="add_form.php">Add Request</a>
+            </li>
+          <li class="nav-item text-white">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Soon..</a>
+          </li>
+    </ul>
+	  <a class="navbar-brand" href="#">
+	    <img class="rounded-lg" src="static/img/plexus_favicon.png" width="30" height="30" alt="">  
+      </a>
+      
+	</nav>
+
+	<br>
+    <!-- ------------------------------ Content body STARTS here -------------------->
+  
+
+
+
+	<div class="container">
+		<div class="row color-row">
+			<div class="card-deck mx-auto p-0" style="width: 100rem; height: 800px;">
+				<div class="card shadow-sm">
+					<div class="card-header p-1 text-center font-weight-bold">Calibration Online Request Form</div>
+					<div class="card-body">
+                        <!-- Your text here... -->
+                        <!-- Your text here... -->
+                        <!-- Your text here... -->
+                        <!-- Your text here... --> 
+                  <form class="text-center" style="margin-bottom: 15px">
+                    <label>Search by EIN :</label>
+                    <input type="text" id="myInput" onkeyup="searchTable()" placeholder="EIN1234567" height="50px">
+                  </form>
+                  
+            <table id="myTable" class="table table-striped table-sm mytable_sticky">
+								<thead>
+								  <tr>
+									<th scope="col">ID</th>
+									<th scope="col">EIN</th>
+									<th scope="col">Instrument Description</th>
+                  <th scope="col">Date Received</th>
+                  <th scope="col">Site Code</th>
+                  <th scope="col">Owner</th>
+                  <th scope="col">Cal. Status</th>
+									<th scope="col">Action</th>
+								  </tr>
+								</thead>
+								<tbody id="table_All"></tbody>
+						</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	
+    <!-- ------------------------------ Content body ENDS here ------------------------->
+    <script>
+            function searchTable() {
+              // Declare variables
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("myTable");
+              tr = table.getElementsByTagName("tr");
+            
+              // Loop through all table rows, and hide those who don't match the search query
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }
+              }
+            }
+            </script>
+
+	<!-- Script file goes here -->
+	<script src="plugin/Chart.js-2.8.0/dist/Chart.bundle.js"></script>
+	<script src="plugin/Chart.js-2.8.0/dist/Chart.bundle.min.js"></script>
+	<script src="plugin/jquery.min.js"></script>
+	<script src="plugin/fontawesome.js"></script>
+	<script type="text/javascript" src="js/chart1.js"></script>
+    <script type="text/javascript" src="js/chart2.js"></script>
+    <script type="text/javascript" src="js/chart3.js"></script>
+	<script type="text/javascript" src="js/topChart.js"></script>
+	<script type="text/javascript" src="js/parseData.js"></script>
+	</body>
+</html>
+
+
+<!-- ################Things To Do####################### -->
+<!-- https://jsfiddle.net/u9d1ewsh/ buat pagination reference -->
+<!-- https://www.youtube.com/watch?v=GhgM8gfBzFQ save chartjs as png -->
+<!-- user form add, edit, delete -->
+
+<!-- https://plexus.com/PlexusCDN/plexus/media/english-media/logos/Plexus-Logo-212x42.svg -->

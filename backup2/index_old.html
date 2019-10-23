@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Plexus | Calibration Status</title>
+		<link rel="icon" href="static/icons/0.png" type="image/gif" sizes="16x16">
+		<link rel="stylesheet" href="plugin/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style_plexus.css">
+	</head>
+
+
+<!------------------------------------------------ Body content goes here------------------------------ -->
+<body>
+	<!--------------------------------- Navbar Menu -->
+	<nav class="navbar navbar-light bg-danger justify-content-between">
+	<a class="navbar-brand text-white" href="index.html">Calibration Status Dashboard</a>
+	<ul class="nav justify-content-end">
+		<li class="nav-item">
+			<a class="nav-link text-white" href="index.html">Dashboard</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-white" href="form_table.html">Status</a>
+		</li>
+		<li class="nav-item">
+				<a class="nav-link text-white" href="add_form.php">Add Request</a>
+			</li>
+		<li class="nav-item text-white">
+			<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Soon..</a>
+		</li>
+	</ul>
+		<a class="navbar-brand" href="#">
+			<img class="rounded-lg" src="static/img/plexus_favicon.png" width="30" height="30" alt="">  
+		</a>
+	</nav>
+
+	
+	<br>
+
+	<!-- <div class="container text-center">
+		<h1 class="text-white ">Calibration Status Dashboard</h1>
+		<a class="text-white" href="index.html">Dashboard</a><span class="text-white"> | </span>
+		<a class="text-white" href="form_table.html">Status</a><span class="text-white"> | </span>
+		<a class="text-white" href="add_form.php">Add request</a>
+	</div>
+	<br> -->
+
+
+	<div class="container">
+		<!-- Moving text -->
+		<!-- <marquee behavior="scroll" direction="right"><strong>Calibration is OPEN NOW UNTIL 12 PM</strong></marquee> -->
+		
+		<div class="row color-row">
+			<div class="card-deck mx-auto p-0" style="width: 80rem;">
+				<div class="card shadow-sm">
+					<div class="card-header p-1 text-center font-italic">Calibration Request</div>
+					<div class="card-body">
+						<h3 class="card-title text-center"><i class="far fa-lightbulb"></i><span id=total_calVolume></span></h3> 
+					</div>
+				</div>
+				<!-- bg-info/danger/warning etc for colour card bg -->
+				<div class="card shadow-sm">
+					<div class="card-header p-1 text-center font-italic">Calibration Completed</div>
+					<div class="card-body">
+						<h3 class="card-title text-center"><i class="fas fa-tasks"></i><span id=total_calCompleted></span></h3>
+					</div>
+				</div>
+
+				<div class="card shadow-sm">
+					<div class="card-header p-1 text-center font-italic">Shipping Overdue</div>
+					<div class="card-body">
+						<h3 class="card-title text-center"><i class="fas fa-shipping-fast"></i> 6</h3>
+					</div>
+				</div>
+
+				<div class="card shadow-sm">
+					<div class="card-header p-1 text-center font-italic">Cost Savings</div>
+					<div class="card-body">
+						<h3 class="card-title text-center blink"><i class="fas fa-caret-up" style="color: #0f9b0f"></i><span id=total_calCost></span></h3>
+					</div>
+				</div>
+
+				<div class="card shadow-sm">
+					<div class="card-header p-1 text-center font-italic">Volume</div>
+					<div class="card-body">
+						<h3 class="card-title text-center"><i class="fab fa-stack-overflow"></i> Null</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<!-- new row  -->
+		<div class="row color-row mt-2">
+			<div class="col color-col">
+				<div class="card shadow-sm" style="height:100%">
+					<div class="card-body">
+						<!-- Selection Month/Day/Year  -->
+						
+							<div class="row color-row font-italic mt-0 ">
+									<div class="col color-col"><h5 class="text-left"> Total Calibration Request</h5></div>
+									<div class="col color-col text-right">
+											<label>Filter By:</label>
+											<select>
+												<option value="all">All</option>
+												<option value="7">7 Days</option>
+												<option value="30">30 Days</option>
+												
+										   </select>
+									</div>
+									<hr>
+							</div>		
+						
+						<!--  -->
+						<div class="7 box"><canvas id="mainChart_7"  height="70"></canvas></div>
+						<div class="30 box"><canvas id="mainChart_30" height="70"></canvas></div>
+						<div class="all box"><canvas id="mainChart_all" height="70"></canvas></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+<!----------------------- row 2 ------------>
+		<div class="row color-row mt-2">
+			<!-- row 2 col 1 -->
+			<div class="col-lg-6 color-col"> 
+				<div class="row color-row">
+					<div class="col color-col">
+						<div class="card shadow-sm" style="height:100%">
+							<div class="card-body">
+								<!-- content here -->
+								<div class="row">
+									<div class="col-sm col-lg p-0 m-0"><canvas id="myChart2" style="width:50%"></canvas></div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col color-col">
+							<div class="card shadow-sm" style="height:100%">
+								<div class="card-body">
+									<!-- content here -->
+									<div class="row">
+										
+										<div class="col-sm col-lg p-0 m-0"><canvas id="myChart3" style="width:50%"></canvas></div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>	
+				
+				<!--  -->
+				<div class="row color-row mt-2">
+					<div class="col color-col">
+						<div class="card shadow-sm" style="height:100%">
+							<div class="card-body">
+								<!-- content here -->
+									<div class="row-lg-4">
+											<div class="progress">
+													<div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6 color-col">
+				<div class="card shadow-sm">
+				  <div class="card-body">
+					<canvas id="myChart"></canvas>
+				  </div>
+				</div>
+			</div>
+		</div>
+<!-- -----------------row 3---------------- -->
+		
+		
+		<div class="row mt-2">
+			<div class="col color-col"> <!-- row-2 col-1 -->
+				<div class="card shadow-sm" style="height:100%">
+					<div class="card-body table-responsive">
+						<!-- <h5 class="text-left"> Calibration Request Ticket</h5> -->
+						<!-- table start -->
+						<table class="table table-striped table-sm">
+								<thead>
+								  <tr>
+									<th scope="col">ID</th>
+									<th scope="col">EIN</th>
+									<th scope="col">Instrument Description</th>
+									<th scope="col">Date Received</th>
+									<th scope="col">Status</th>
+								  </tr>
+								</thead>
+								<tbody id="table1"></tbody>
+						</table>
+						<a href="form_table.html">See more..</a>
+						<!-- table end -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-----------------------  row 4 ----------------->
+		<br>
+
+		<div class="row">
+			<div class="col-lg-12 color-col">
+				<div class="card shadow-sm" style="height:100%">
+					<div class="card-body">
+						<!-- content here -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+		<!-- end div container -->
+	</div>
+	<br>
+
+	
+
+<!-- Body content ends here -->
+	
+	<!-- Script file goes here -->
+	<script src="plugin/Chart.js-2.8.0/dist/Chart.bundle.js"></script>
+	<script src="plugin/Chart.js-2.8.0/dist/Chart.bundle.min.js"></script>
+	<script src="plugin/jquery.min.js"></script>
+	<script src="plugin/fontawesome.js"></script>
+	<script type="text/javascript" src="js/chart1.js"></script>
+    <script type="text/javascript" src="js/chart2.js"></script>
+    <script type="text/javascript" src="js/chart3.js"></script>
+	<script type="text/javascript" src="js/topChart.js"></script>
+	<script type="text/javascript" src="js/parseData.js"></script>
+	</body>
+</html>

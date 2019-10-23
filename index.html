@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Favicon & Title  -->
+    <link rel="icon" href="static/icons/0.png" type="image/gif" sizes="16x16">
+    <title>Plexus | Calibration Status</title>
+
+    <!-- CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    
+    <!-- Dont change order-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.1/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+    
+    <!-- CSS letak last  -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  
+
+  <body>
+
+    <!---------------------------------
+                    Navbar
+      --------------------------------->
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" href="#"><img src="static/img/plexus_favicon.png" width="30" height="30" class="d-inline-block align-top rounded" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="page_status.html">Request Status</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Documentation</a>
+            </li>
+          </ul>
+          <span class="navbar-text text-white">
+            Calibration Status Dashboard
+          </span>
+        </div>
+      </nav>
+
+
+    <!---------------------------------
+                    Row 1
+      --------------------------------->
+    <div class="container-fluid mb-3">
+      <p class="mt-1 text-center" style="font-size: 20px; margin-bottom: .5rem">Dashboard | <span id="update_time"></span> | <span class="blink" id="runtime"></span></p>
+      <div class="row ">
+        <div class="col-lg-4 box" style="padding-right: 0px">
+          <div class="card shadow_custom mx-n2 h-100 ">
+            <div class="card-body pb-0 ">
+                <div class="row mb-0">
+                    <div class="col-7">
+                        <h6 class="">Total Calibration Request </h6>
+                    </div>
+                    <div class="col-5 ">
+                        <select>
+                            <option value="30">Last 30 request..</option>
+                            <option value="7">Last 7 request..</option>
+                            <option value="all">All</option> 
+                        </select>
+                    </div>
+                 </div>
+              
+                 
+                 
+              
+            </div>
+            <div class="30 hideContent m-3"><canvas id="mainChart_30" width="100%" height="44%"></canvas></div>
+            <div class="7 hideContent m-3"><canvas id="mainChart_7" width="100%" height="44%"></canvas></div>
+            <div class="all hideContent m-3"><canvas id="mainChart_all" width="100%" height="44%"></canvas></div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 box" style="padding-right: 0px">
+            <div class="card shadow_custom mx-n2 h-100">
+              <div class="card-body pb-0">
+                <h6 class="card-title"> Total Cost Saving <small class="text-muted">Last 30 days..</small></h6>
+              </div>
+            <canvas id="costChart" class="mt-3 mb-3" width="100%" height="44%"></canvas>
+            </div>
+          </div>
+
+        <div class="col-lg-4 box" >
+          <div class="card shadow_custom mx-n2 h-100">
+            <div class="card-body pb-0">
+                <h6 class="card-title"> Total Inventory  <small class="text-muted">Last 7 days..</small></h6>
+            </div>
+            <canvas id="myChart" class="mt-3 mb-3 " width="100%" height="44%"></canvas>
+          </div>
+        </div>
+
+        
+        
+      </div>
+
+     <!---------------------------------
+                    Row 2
+      --------------------------------->
+
+        <div class="row mt-2" style="padding-top: 5px">
+          <div class="col-lg-2 box" style="padding-right: 0px">
+            <div class="card shadow_custom mx-n2 h-100">
+              <div class="card-body" style="padding:0.625rem">
+                <h6 class="card-title pl-2"><small class="text-muted">Completed Cal Request</small></h6>
+                <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="fas fa-check fa-xs" style="color: #0f9b0f"></i><span id=total_calCompleted></span></p>
+                
+              </div>
+              <canvas id="requestCompleted_chartR2"  width="100%" height="30%"></canvas>
+            </div>
+          </div>
+          <div class="col-lg-2 box" style="padding-right: 0px">
+              <div class="card shadow_custom mx-n2 h-100">
+                <div class="card-body" style="padding:0.625rem">
+                  <h6 class="card-title pl-2"><small class="text-muted">In-Review Cal Request</small></h6>
+                  <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="fas fa-clipboard-list fa-xs" style="color: #83a4d4"></i><span id=total_calReview></span></p>
+                </div>
+                <canvas id="inReview_chartR2"  width="100%" height="40%"></canvas>
+              </div>
+            </div>
+            <div class="col-lg-2 box" style="padding-right: 0px">
+              <div class="card shadow_custom mx-n2 h-100">
+                <div class="card-body" style="padding:0.625rem">
+                  <h6 class="card-title pl-2"><small class="text-muted">Cost Savings</small></h6>
+                  <p class="font-weight-bold text-left  h2" style="position: absolute; left:10px"><i class="fas fa-caret-up" style="color: #0f9b0f; bottom:0px"></i><span id=total_calCost></span><sup style="font-size:0.9rem"> USD</sup></i></p>
+                </div>
+                <canvas id="calCost_chartR2"  width="100%" height="40%"></canvas>
+              </div>
+            </div>
+          <div class="col-lg-2 box" style="padding-right: 0px">
+            <div class="card shadow_custom mx-n2 h-100">
+              <div class="card-body" style="padding:0.625rem">
+                <h6 class="card-title pl-2"><small class="text-muted">Outstanding Shipping</small></h6>
+                <p class="font-weight-bold text-left blink h2" style="position: absolute; left: 20px"><i class="fas fa-shipping-fast fa-xs" style="color:#ED4264"></i> 3</p>
+              </div>
+              <canvas id="#"  width="100%" height="40%"></canvas>
+            </div>
+          </div>
+          
+          <div class="col-lg-2 box" style="padding-right: 0px"> 
+            <div class="card shadow_custom mx-n2 h-100">
+              <div class="card-body" style="padding:0.625rem">
+                <h6 class="card-title pl-2"><small class="text-muted">Top Cost Savings by Item</small></h6>
+                <!-- <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="far fa-clock fa-xs"></i> 123<sup style="font-size:0.9rem"> HRS</sup></span></p> -->
+              </div>
+              <!-- <ul class="list-group">
+                  <li class="list-group-item pb-1 pt-1"><span id="top1_sale"></span></li>
+                  <li class="list-group-item pb-1 pt-1"><span id="top2_sale"></span></li>
+                  <li class="list-group-item pb-1 pt-1"><span id="top2_sale"></span></li>
+                  
+                </ul> -->
+            </div>
+          </div>
+          <div class="col-lg-2 box">
+            <div class="card shadow_custom mx-n2 h-100">
+              <div class="card-body" style="padding:0.625rem">
+                <h6 class="card-title pl-2"><small class="text-muted">Run Time</small></h6>
+                <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="far fa-clock fa-xs"></i> 40<sup style="font-size:0.9rem"> HRS</sup></p>
+                <canvas id="chartSix"  width="100%" height="40%"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+
+      <!---------------------------------
+                    Row 3
+      --------------------------------->
+          <div class="row mt-2" style="padding-top: 5px">
+            <div class="col-lg-6 box" style="padding-right: 0px">
+              <div class="card shadow_noZoom mx-n2 h-100">
+                <div class="card-body">
+                  <h6 class="card-title"> Calibration Request Form <small class="text-muted">Last 8 requests.. </small><a href="page_status.html"> More</a></h6>
+                  <h1></h1>
+                  <!-- table example -->
+                  <table class="table-sm table-striped" width="100%" style="font-size: 14px">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">EIN Number</th>
+                        <th scope="col">Item Description</th>
+                        <th scope="col">Date Received</th>
+                        <th scope="col">Cal Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table1">
+                      <!-- Paste content SQL -->
+                    </tbody>
+                  </table>
+                  <!-- end -->
+                </div>
+              </div>
+            </div>
+            <!-- N/A -->
+            <div class="col-lg-3 box" style="padding-right: 0px">
+              <div class="card shadow_noZoom mx-n2">
+                <div class="card-body">
+                  <!-- This is some text within a card body. -->
+                  <h6 class="card-title">Calibration Request By Location <small class="text-muted">(RIV,ISL,SS,HS)</small></h6>
+                  <h1></h1>
+                  <div id="mapid" style="width: 100%; height: 300px;"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Quick Links -->
+            <div class="col-lg-3 box">
+              <div class="card shadow_noZoom mx-n2">
+                <div class="card-body">
+                  <h6 class="card-title font-weight-bold">Quick Links</h6>
+                    <ul class="list-group"  style="font-size: 14px">
+                          <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+                            <a href="#">User Guide Manual</a>
+                            <span class="badge badge-primary badge-pill">14</span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+                            <a href="#">Calibration Lab Personnel</a>
+                            <span class="badge badge-primary badge-pill">2</span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+                            <a href="#">Feedback Form</a>
+                            <span class="badge badge-primary badge-pill">1</span>
+                          </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+           </div> 
+    </div>
+
+   
+    <script>
+        //--------------------------
+        // Get current date and time
+        //--------------------------
+        Date.prototype.getCurrentTime = function(){ 
+          return ((this.getHours() < 10)?"0":"") + ((this.getHours()>12)?(this.getHours()-12):this.getHours()) +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds() + ((this.getHours()>12)?(' PM'):' AM'); 
+        };
+
+        function realtime()
+        {
+        var today = new Date(); //date object
+        var current_date = today.getDate();
+        var current_month = today.getMonth()+1; //Month starts from 0
+        var current_year =  today.getFullYear();
+        var current_time = today.getCurrentTime();
+        var realtime = current_month+"/"+current_date+"/"+current_year+' - '+current_time;
+        $("#update_time").html(realtime);
+        }
+
+        //update current date and time every 1 sec
+        setInterval(function(){ realtime(); }, 1000);
+
+        
+        //--------------------------
+        // Run-time (OPEN|CLOSED)
+        //--------------------------
+        var d = new Date();
+        var n = d.getDay();
+        var now = d.getHours() + "." + d.getMinutes();
+        var weekdays = [
+            ["Sunday", 9.30, 12.00, 15.30,22.00],
+            ["Monday", 8.30, 12.00, 15.30,19.00],
+            ["Tuesday", 8.30, 12.00, 15.30,19.00],
+            ["Wednesday", 8.30, 12.00, 15.30,19.00],
+            ["Thursday", 8.30, 12.00, 15.30,19.00],
+            ["Friday", 8.30, 11.30],
+            ["Saturday"] // we are closed, sorry!
+        ];
+        var day = weekdays[n];
+        
+        if (now > day[1] && now < day[2] || now > day[3] && now < day[4]) {
+          $("#runtime").html("<span style=\"color: green\">" +  "CAL RUN-TIME OPEN" + "</span>");
+        }
+          else {
+          $("#runtime").html("<span style=\"color: RED\">" +  "CAL RUN-TIME CLOSED" + "</span>");
+        }
+      
+      
+    
+      
+      
+      
+    
+
+    
+
+    </script>
+    <!-- Optional JavaScript -->
+    <script src="plugin/Chart.js-2.8.0/dist/Chart.bundle.js"></script>
+    <script src="plugin/Chart.js-2.8.0/dist/Chart.bundle.min.js"></script>
+    <script src="plugin/fontawesome.js"></script>
+    
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/row1_chart.js"></script>
+    <script type="text/javascript" src="js/row2_chart.js"></script>
+    <script type="text/javascript" src="js/parseData.js"></script>
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+  </body>
+</html>

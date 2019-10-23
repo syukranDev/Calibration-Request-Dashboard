@@ -1,0 +1,84 @@
+
+
+/* 
+.container_chart{
+    height:300px;
+    width:300px;
+}
+
+html{
+    min-height: 100%;
+} */
+
+/* body {
+    
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(180deg, #c31432 15%, #f2f2f2 0%);
+    background-color: #f2f2f2;
+    font-family: 'Arial';
+    
+} */
+
+/* .box {
+  display:none;  
+}
+
+a:hover {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  
+} */
+
+
+
+
+
+
+/*------------------ CSS Blink animation ------------------*/
+/* @-webkit-keyframes blinker {
+  from {opacity: 1.0;}
+  to {opacity: 0.0;}
+} */
+
+
+/* .blink{
+	text-decoration: blink;
+	-webkit-animation-name: blinker;
+	-webkit-animation-duration: 0.6s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-direction: alternate;
+} */
+/* -------------------------------------------------------- */
+
+/* 
+  .color-row{
+      border: 1px  solid blue;
+  }
+
+  .color-col{
+      border: 1px  dotted yellowgreen;
+  }
+     */
+
+/* .navbar {
+    min-height: 40px;
+  }
+  
+  .navbar-brand {
+    padding: 15px 15px;
+    height: 20px;
+    line-height: 30px;
+    
+  }
+	 */
+  
+   /* .guide {
+    border: 1px  solid blue;
+   } */
+
+ 
+   

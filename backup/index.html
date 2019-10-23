@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <!-- Font Awesome CDN -->
+        <script src="https://kit.fontawesome.com/e52140b373.js"></script>
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+        <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+        <!-- Chart js -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src= https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js></script>
+    </head>
+    
+    <body>
+   <!---------------------------------- Navbar top -->
+      <nav class="navbar fixed-top navbar-light bg-light ">
+        <a class="navbar-brand" href="#">Calibration Status Dashboard</a>
+        <a class="navbar-brand"><img src="static/icons/0.png" width="30" height="30" class="d-inline-block align-top rounded-sm" alt="#"></a>
+        
+      </nav>
+
+    
+
+    <!---------------------------------Counter -->
+      <div class="container-fluid">
+        <br><br><br>
+      
+        
+        <!-- Template -->
+        
+            <div class="row color-row">
+                <div class="col-md-6 color-col"> <!--Adjust column here-->
+                    <div class="card border-0 shadow my-5.25"> <!--adjust margin top sini-->
+                      <div class="card-body">
+                        <div class="row color-row">
+                            <!-- <div class="col-md-2 color-col-in"></div>
+                            <div class="col-md-2 color-col-in"></div>
+                            <div class="col-md-2 color-col-in"></div>
+                            <div class="col-md-2 color-col-in"></div>
+                            <div class="col-md-2 color-col-in"></div>
+                            <div class="col-md-2 color-col-in"></div> -->
+                            <h4>Volume as of today</h4><br>
+                              <!--  -->
+                              <table style="width:100%">
+                                  <tr>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th> 
+                                    <th>Age</th>
+                                  </tr>
+                                  <tr>
+                                    <td>Jill</td>
+                                    <td>Smith</td>
+                                    <td>50</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Eve</td>
+                                    <td>Jackson</td>
+                                    <td>94</td>
+                                  </tr>
+                                  <tr>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>80</td>
+                                  </tr>
+                                </table>
+                              <!--  -->
+
+                            
+                        </div>
+                      </div>
+                    </div>
+                    
+                     <br>
+
+                    <div class="card border-0 shadow my-5.25"> <!--adjust margin top sini-->
+                      <div class="card-body">
+                        <div class="row color-row"><h4>Calibration Request Ticket</h4>
+                        <!-- Table start -->
+                        <table class="table table-sm">
+                            <thead>
+                              <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Instrument Description</th>
+                                <th scope="col">Calibration Job</th>
+                                <th scope="col">Site Code</th>
+
+                              </tr>
+                            </thead>
+                            <tbody id="userData"></tbody>
+                          </table>
+                        <!-- Table end -->
+                        </div>
+                      </div>
+                    </div> 
+
+                    
+                </div>
+                 
+                <div class="col-md-6  color-col">  <!--Adjust column here-->
+                    <div class="card border-0 shadow my-5.25"> <!--adjust margin top sini-->
+                      <div class="card-body">
+                        <canvas id="mainChart" ></canvas>
+                        <hr>
+                        <div class="row justify-content-centered color-row">
+                          <div class="col-md-4 color-col-in"><canvas id="myChart2" height="300px"></canvas></div>
+                          <div class="col-md-4 color-col-in"><canvas id="myChart3" height="300px"></canvas></div>
+                          <div class="col-md-4 color-col-in"><canvas id="myChart" height="300px"></canvas></div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                </div> 
+            </div>
+
+
+           
+          <!-- User form table -->
+          
+      </div>
+    </div>
+
+    <!--------------------------------------------- Landing page  -->
+    <br>
+    <br>
+    <div class="container">
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Calibration Lab. <span class="text-muted">Precision that matters.</span></h2>
+                    <p class="lead">In measurement technology and metrology, calibration is the comparison of measurement values delivered by a device under test with those of a calibration standard of known accuracy.</p>
+                </div>
+            <div class="col-md-5">
+                <img src="static/img/calibration_home.jpg" width="100%">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+    
+        
+    </div>
+
+    <!-- -----------------------Container page -->
+    <!-- <div class="container">
+        <div class="card border-0 shadow my-5">
+          <div class="card-body p-5">
+            <h1 class="font-weight-light">Fixed Full Page Background Image</h1>
+            <p class="lead">In this snippet, the background image is fixed to the body element. Content on the page will scroll, but the image will remain in a fixed position!</p>
+            <p class="lead">Scroll down...</p>
+            <div style="height: 700px"></div>
+            <p class="lead mb-0">You've reached the end!</p>
+          </div>
+        </div>
+      </div> -->
+
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Javascript -->
+        <!-- local -->
+        <!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
+        <!-- <script type="text/javascript" src="js/Chart.min.js"></script> -->
+        
+        <script type="text/javascript" src="js/chart1.js"></script>
+        <script type="text/javascript" src="js/chart2.js"></script>
+        <script type="text/javascript" src="js/chart3.js"></script>
+        <script type="text/javascript" src="js/topChart.js"></script>
+
+        <script type="text/javascript" src="js/fetchData_userform.js"></script>
+        
+		    
+        <script type="text/javascript" src="js/counterCal.js"></script>
+        
+    </body>
+</html>

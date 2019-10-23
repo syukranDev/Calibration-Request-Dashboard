@@ -1,0 +1,10 @@
+SELECT dateReceived, status, count(status) FROM myplexus.myplexus_data WHERE(status LIKE  'Completed') group by dateReceived order by id DESC LIMIT 30
+
+SELECT id, dateReceived, ROUND(sum(calCost),2) FROM myplexus.myplexus_data group by dateReceived order by id DESC LIMIT 7;
+
+//----- Sales by Each Item
+//
+SELECT id, dateReceived, instrumentDesc, ROUND(sum(calCost),2) FROM myplexus.myplexus_data group by instrumentDesc;
+//----- Top 3 Sales Item
+//
+SELECT id, dateReceived, instrumentDesc, ROUND(sum(calCost),2) FROM myplexus.myplexus_data group by instrumentDesc order by ROUND(sum(calCost),2) DESC LIMIT 3;
