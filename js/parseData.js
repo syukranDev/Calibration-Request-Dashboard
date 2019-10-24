@@ -45,9 +45,9 @@ $.post('fetch_calCost.php', function (data) {
 // });
 
 
-// ----------------------Fetch Table Cal Data (Home)-------------------------- //
+//----------------------Fetch Table Cal Data (Homepage tab) -------------------------- //
 
-$.post('fetch_calRequestForm.php', function(data) {
+$.post('homepage_calRequestForm.php', function(data) {
   $.each(data, function(i, item) {
     calStatus = item.status;
     
@@ -62,27 +62,64 @@ $.post('fetch_calRequestForm.php', function(data) {
   });
 });
 
+//----------------------Fetch Table Cal Data (Request Status tab) -------------------------- //
 
-// ----------------------Fetch Table Cal Data (ALL)-------------------------- //
-
-$.post('fetch_calRequest_ALL.php', function(data) {
+$.post('requestForm_table.php', function(data) {
   $.each(data, function(i, item) {
     calStatus = item.status;
     
-    
-      $("#table_All").append("<tr>" +
-                            "<td>" + item.id + "</td>" + 
-                            "<td>" + item.ein_new + "</td>" +
-                            "<td>" + item.instrumentDesc+ "</td>" +
-                            "<td>" + item.dateReceived + "</td>" +
-                            "<td>" + item.siteCode + "</td>" +
-                            "<td>" + item.owner + "</td>" +
-                            "<td>" + item.status +  "</td>" +
-                            "<td>" + "Null" +  "</td>" +
+      $("#formAll").append("<tr id=\"highlight\" data-toggle=\"collapse\" data-target=\".childData\">" +
+                            "<td>" + item.id             +"</td>" +
+                            "<td>" + item.ein_new             +"</td>" +
+                            "<td>" + item.instrumentDesc      +"</td>" +
+                            "<td>" + item.dateReceived        +"</td>" +
+                            "<td>" + item.siteCode            +"</td>" +
+                            "<td class=\"text-success\">" + item.status              +"</td>" +
+                            "</tr>" +
+                              "<tr>" +
+                                "<td colspan=6 class=\"hiddenRow\">" +
+                                    "<div class=\"collapse childData ml-5\" style=\"font-size: 13px\">" +
+                                      "<div class=\"row\">" +
+                                          "<div class=\"col-4\">" + "Calibration Job: " + item.status     + "</div>" +
+                                          "<div class=\"col-4\">" + "Owner: "           + item.owner      + "</div>" +
+                                          "<div class=\"col-4\">" + "Serial Number: "   + item.serialNum  + "</div>" +
+                                      "</div>" +
+                                      "<div class=\"row\">" +
+                                          "<div class=\"col-4\">" + "Date Received:  "   + item.dateReceived +  "</div>" +
+                                          "<div class=\"col-4\">" + "Calibration Cost: " + item.calCost      + "</div>" +
+                                          "<div class=\"col-4\">" + "Manufacturer: "     + item.manufacturer + "</div>" +
+                                      "</div>" +
+                                    "</div>" +
+                                "</td>" +
                             "</tr>"
-                            );
+      );
   });
 });
+
+
+
+
+
+// ----------------------Fetch Table Cal Data (ALL)-------------------------- //
+
+// $.post('fetch_calRequest_ALL.php', function(data) {
+//   $.each(data, function(i, item) {
+//     calStatus = item.status;
+    
+    
+//       $("#table_All").append("<tr>" +
+//                             "<td>" + item.id + "</td>" + 
+//                             "<td>" + item.ein_new + "</td>" +
+//                             "<td>" + item.instrumentDesc+ "</td>" +
+//                             "<td>" + item.dateReceived + "</td>" +
+//                             "<td>" + item.siteCode + "</td>" +
+//                             "<td>" + item.owner + "</td>" +
+//                             "<td>" + item.status +  "</td>" +
+//                             "<td>" + "Null" +  "</td>" +
+//                             "</tr>"
+//                             );
+//   });
+// });
 
 // ----------------------Fetch Table Cal Data (Shipping Indicaltor)----------- //
 /* $("#table_All").append("<tr>" +

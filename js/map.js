@@ -1,7 +1,7 @@
 $(document).ready(function () {
   
   $.ajax({
-    url: "http://localhost/plexus_dashboard/data_chart3.php",
+    url: "http://localhost/plexus_dashboard/mapsiteCode_request.php",
     method: "GET",
     success: function (data) {
       //console.log(data);
@@ -19,41 +19,42 @@ $(document).ready(function () {
      
 
       var mymap = L.map('mapid').setView([5.312453, 100.293362], 12.5);
+      //ARRAY Order ---> [RSE(0), SS(1), ISL(2), HS(3), RS(4)]
       //RIV@RIVN
       var circle = L.circle([5.316977,100.296591], {
-        color: '#FF6384', //border color
-        fillColor: '#FF6384', //background color
+        color: 'red', //border color
+        fillColor: 'rgba(255, 99, 132, 1)', //background color
         fillOpacity: 0.5,
-        radius: score[4]*2,
-      }).addTo(mymap).bindPopup('Total Calibration Request: <br> ' + score[4]);
+        radius: score[4]*3,
+      }).addTo(mymap).bindPopup('Plexus ATC/Riverside: ' + score[4]);
       //RIVEast
       var circle = L.circle([5.314803,100.298555], {
         color: 'red',
-        fillColor: '#f03',
+        fillColor: 'rgba(255, 99, 132, 1)',
         fillOpacity: 0.5,
-        radius: score[0]*2
-      }).addTo(mymap);
+        radius: score[0]*3
+      }).addTo(mymap).bindPopup('Plexus Riverside East: ' + score[0]);
       //Hillside
       var circle = L.circle([5.313051,100.282676], {
         color: 'red',
-        fillColor: '#f03',
+        fillColor: 'rgba(255, 99, 132, 1)',
         fillOpacity: 0.5,
-        radius: score[3]*2
-      }).addTo(mymap);
+        radius: score[3]*3
+      }).addTo(mymap).bindPopup('Plexus Hillside: ' + score[3]);
       //Islandview
       var circle = L.circle([5.306770,100.296109], {
         color: 'red',
-        fillColor: '#f03',
+        fillColor: 'rgba(255, 99, 132, 1)',
         fillOpacity: 0.5,
-        radius: score[2]*2
-      }).addTo(mymap);
+        radius: score[2]*3
+      }).addTo(mymap).bindPopup('Plexus Islandview: ' + score[2]);
       //Seaside
       var circle = L.circle([5.303522, 100.29633], {
         color: 'red',
-        fillColor: '#f03',
+        fillColor: 'rgba(255, 99, 132, 1)',
         fillOpacity: 0.5,
-        radius: score[1]*2
-      }).addTo(mymap);
+        radius: score[1]*3
+      }).addTo(mymap).bindPopup('Plexus Seaside: ' + score[1]);
       
     
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

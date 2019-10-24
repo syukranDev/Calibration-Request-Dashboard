@@ -1,3 +1,46 @@
+<!-- HTML CODE dataTable
+
+
+<div class="container mt-3">
+            <div class="mb-3">
+              <a href="addrequest.html" class="btn btn-info" role="button"></i>Add a request</a>
+            </div>
+
+            <table id="requestTable"  class="table table-striped ">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>EIN</th>
+                        <th>Instrument Description</th>
+                        <th>Site Code</th>
+                        <th>Owner</th>
+                        <th>Date Received</th>
+                      </tr>
+                    </thead>
+            </table>   
+    </div>
+
+    <script>
+      $(document).ready(function() {
+          $('#requestTable').DataTable( {
+              "serverSide": true,
+              "ajax": "dataTable.php"
+          } );
+      } );
+
+      
+    </script>
+
+
+
+
+
+
+ -->
+
+
+
+
 <?php
  
 /*
