@@ -38,11 +38,27 @@ $.post('fetch_calCost.php', function (data) {
 });
 
 // ----------------------Top Cost Savings by Item Data-------------------------- //
-// $.post('sales_by_item.php', function (data) {
-//   $.each(data, function (i, item) {
-//     $("#top1_sale").append(" " + item['ROUND(SUM(calCost),2)']);
-//   });
-// });
+$.post('sales_by_item.php', function (data) {
+    console.log(data);
+    var item = [];
+    var totalSale = [];
+    for(var i in data){
+      
+      
+
+      item.push(data[i].instrumentDesc);
+      totalSale.push(data[i]['ROUND(SUM(calCost),2)']);
+      console.log(i);
+    }
+    
+    // console.log(totalSale);
+    console.log(item);
+    $("#top1_sale").append(item[0] + ": " + "<span class=\"text-success\">$" + totalSale[0] + "</span>");
+    $("#top2_sale").append(item[1] + ": " + "<span class=\"text-success\">$" + totalSale[1] + "</span>");
+    $("#top3_sale").append(item[2] + ": " + "<span class=\"text-success\">$" + totalSale[2] + "</span>");
+    
+  });
+ 
 
 
 //----------------------Fetch Table Cal Data (Homepage tab) -------------------------- //
