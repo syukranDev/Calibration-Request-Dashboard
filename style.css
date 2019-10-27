@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:700|Patua+One&display=swap');
-body{
+body#homepage{
     /* background-color:  #fafbfe; */
-    background-color:  #fff;
+    background-color: #F2EEFA;
 
 }
 

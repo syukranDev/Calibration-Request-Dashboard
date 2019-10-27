@@ -69,7 +69,7 @@ $.post('homepage_calRequestForm.php', function(data) {
     
       $("#table1").append("<tr>" +
                             "<td>" + item.id + "</td>" + 
-                            "<td>" + item.ein_new + "</td>" +
+                            "<td>" + item.ein + "</td>" +
                             "<td>" + item.instrumentDesc+ "</td>" +
                             "<td>" + item.dateReceived + "</td>" +
                             "<td>" + item.status + "</td>" +
@@ -86,7 +86,7 @@ $.post('requestForm_table.php', function(data) {
     
       $("#formAll").append("<tr id=\"highlight\" data-toggle=\"collapse\" data-target=\".childData\">" +
                             "<td>" + item.id             +"</td>" +
-                            "<td>" + item.ein_new             +"</td>" +
+                            "<td>" + item.ein           +"</td>" +
                             "<td>" + item.instrumentDesc      +"</td>" +
                             "<td>" + item.dateReceived        +"</td>" +
                             "<td>" + item.siteCode            +"</td>" +

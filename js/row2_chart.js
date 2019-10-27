@@ -84,7 +84,12 @@ $(document).ready(function(){
                             gridLines: {
                                         display: false,
                                         drawBorder: false
-                                    }
+                                    },
+                            ticks: {
+                                max: 12,
+                                min: 0,
+                                stepSize: 2
+                            },
                         }]
             },
             

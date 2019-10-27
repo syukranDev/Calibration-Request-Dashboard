@@ -17,7 +17,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT * FROM myplexus.myplexus_data order by id DESC LIMIT 30;");
+$query = sprintf("SELECT * FROM myplexus.myplexus_data order by id DESC LIMIT 15;");
 
 
 
