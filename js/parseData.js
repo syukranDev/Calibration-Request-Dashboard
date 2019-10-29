@@ -38,7 +38,7 @@ $.post('fetch_calCost.php', function (data) {
 });
 
 // ----------------------Top Cost Savings by Item Data-------------------------- //
-$.post('sales_by_item.php', function (data) {
+$.post('topsales_by_item.php', function (data) {
     console.log(data);
     var item = [];
     var totalSale = [];
@@ -53,12 +53,33 @@ $.post('sales_by_item.php', function (data) {
     
     // console.log(totalSale);
     console.log(item);
-    $("#top1_sale").append(item[0] + ": " + "<span class=\"text-success\">$" + totalSale[0] + "</span>");
-    $("#top2_sale").append(item[1] + ": " + "<span class=\"text-success\">$" + totalSale[1] + "</span>");
-    $("#top3_sale").append(item[2] + ": " + "<span class=\"text-success\">$" + totalSale[2] + "</span>");
+    $("#top1_sale").append("#1 " + item[0] + ": " + "<span class=\"text-success\">$" + totalSale[0] + "</span>");
+    $("#top2_sale").append("#2 " + item[1] + ": " + "<span class=\"text-success\">$" + totalSale[1] + "</span>");
+    $("#top3_sale").append("#3 " + item[2] + ": " + "<span class=\"text-success\">$" + totalSale[2] + "</span>");
     
   });
  
+ // ----------------------Top Requestor Data-------------------------- //
+$.post('toprequestors.php', function (data) {
+  console.log(data);
+  var item = [];
+  var totalOwner = [];
+  for(var i in data){
+    
+    
+
+    item.push(data[i].owner);
+    totalOwner.push(data[i]['count(owner)']);
+    console.log(i);
+  }
+  
+  // console.log(totalSale);
+  console.log(item);
+  $("#top1_owner").append("#1 " + item[0] + ": " + "<span class=\"text-success\">" + totalOwner[0] + " requests</span>");
+  $("#top2_owner").append("#2 " + item[1] + ": " + "<span class=\"text-success\">" + totalOwner[1] + " requests</span>");
+  $("#top3_owner").append("#3 " + item[2] + ": " + "<span class=\"text-success\">" + totalOwner[2] + " requests</span>");
+  
+}); 
 
 
 //----------------------Fetch Table Cal Data (Homepage tab) -------------------------- //
@@ -72,11 +93,38 @@ $.post('homepage_calRequestForm.php', function(data) {
                             "<td>" + item.ein + "</td>" +
                             "<td>" + item.instrumentDesc+ "</td>" +
                             "<td>" + item.dateReceived + "</td>" +
-                            "<td>" + item.status + "</td>" +
+                            "<td>" + "<span class=\"statusColor\" style=\" font-style: italic;\">" +  item.status + "</span>" + "</td>" +
                             "</tr>"
                             );
   });
 });
+
+// $(document).ready(function () {
+//   if ($('statusColor').text() === 'Completed') {  
+//     $('statusColor').css({"background-color":"green"}); 
+//   } 
+//   if ($('statusColor').text() === 'Approved') { 
+//     $('.statusColor').css({"background-color":"blue"});
+//   }
+// });
+
+// $(document).ready(function() {
+
+//   var changeText1 = 'Completed';
+//   var changeText2 = 'Approved';
+
+//   $('statusColor').each(function() {
+//       var text = $(this).text();
+//       if (text == changeText1) {
+//           console.log("complete@#$%d");
+//           $(this).css({"color":"green"});
+//       } else if (text == changeText2) {
+//         console.log("approved@@EW");
+//           $(this).css({"color":"yellow"});
+//       }
+//   });
+// })
+
 
 //----------------------Fetch Table Cal Data (Request Status tab) -------------------------- //
 
@@ -90,7 +138,7 @@ $.post('requestForm_table.php', function(data) {
                             "<td>" + item.instrumentDesc      +"</td>" +
                             "<td>" + item.dateReceived        +"</td>" +
                             "<td>" + item.siteCode            +"</td>" +
-                            "<td class=\"text-success\">" + item.status              +"</td>" +
+                            "<td class=\"text-success\">" + "<span class=\"statusColor\" style=\" font-style: italic;\">" + item.status + "</span>" + "</td>" +
                             "</tr>" +
                               "<tr>" +
                                 "<td colspan=6 class=\"hiddenRow\">" +
@@ -116,51 +164,21 @@ $.post('requestForm_table.php', function(data) {
 
 
 
-// ----------------------Fetch Table Cal Data (ALL)-------------------------- //
+// ----------------------Status Replace Color *Works on Edge only* -------------------------- //
 
-// $.post('fetch_calRequest_ALL.php', function(data) {
-//   $.each(data, function(i, item) {
-//     calStatus = item.status;
-    
-    
-//       $("#table_All").append("<tr>" +
-//                             "<td>" + item.id + "</td>" + 
-//                             "<td>" + item.ein_new + "</td>" +
-//                             "<td>" + item.instrumentDesc+ "</td>" +
-//                             "<td>" + item.dateReceived + "</td>" +
-//                             "<td>" + item.siteCode + "</td>" +
-//                             "<td>" + item.owner + "</td>" +
-//                             "<td>" + item.status +  "</td>" +
-//                             "<td>" + "Null" +  "</td>" +
-//                             "</tr>"
-//                             );
-//   });
-// });
 
-// ----------------------Fetch Table Cal Data (Shipping Indicaltor)----------- //
-/* $("#table_All").append("<tr>" +
-"<td>" + item.id + "</td>" + 
-"<td>" + item.ein_new + "</td>" +
-"<td>" + item.instrumentDesc+ "</td>" +
-"<td>" + item.dateReceived + "</td>" +
-"<td>" + item.status + "</td>" + "<br>" +
-"<td>" + "<span class=\"replaceStatus\">" + calStatus+ "</span>" + "</td>" + "<br>" +
-"</tr>"
-); */
+$(document).ready(function () {
+  var changeText1 = 'Completed';
+  // var changeText2 = 'In review';
+  var changeText3 = 'Approved';
 
-// $(document).ready(function () {
-//   var changeText1 = 'Completed';
-//   var changeText2 = 'In review';
-//   var changeText3 = 'Approved';
-
-//   $('.replaceStatus').each(function()  {
-//     var text = $(this).text();
-//     if (text == changeText1) { $(this).text('Shipped Out');}
-//     // else if (text == changeText2) { $(this).text('ds');}
-//     else if (text == changeText3) { $(this).text('dst');}
-//     // else if (text == changeText2) { $(this).html("<img src=static/img/cross.jpg width=\"20px\" height=\"20px\"><img>"); }
-//     // else if (text == changeText3) { $(this).html("<img src=static/img/cross.jpg width=\"20px\" height=\"20px\"><img>"); }
-//   });
-// }); 
+  $('.statusColor').each(function()  {
+    var text = $(this).text();
+    if (text == changeText1) { $(this).css({"color":"green"});}
+    // else if (text == changeText2) { $(this).text('ds');}
+    else if (text == changeText3) {  $(this).css({"color":"blue"});}
+    // else if (text == changeText2) { $(this).html("<img><img>"); }
+  });
+}); 
 
 

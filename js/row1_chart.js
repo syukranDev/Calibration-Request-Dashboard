@@ -16,75 +16,36 @@ $(document).ready(function(){
                 score.push(data[i]['count(InstrumentDesc)']);
 			}
 			
-            var chartdata = {
+            var data = {
+				datasets: [{
+					data: score,
+					backgroundColor: "rgba(255, 99, 132, 0.5)",
+					// borderColor: 'rgb(255, 99, 132)',
+					borderWidth: 1,
+				}],
 				labels: player,
-				datasets : [
-					{
-                        
-                        
-						// backgroundColor:["#E74C3C", "#8E44AD ", "#3498DB", "#16A085", "#2ECC71", "#F1C40F" , "#BDC3C7", "#34495E", "#A9CCE3"], 
-
-						backgroundColor: 'rgba(255, 99, 132, 0.4)',
-						borderColor: 'rgb(255, 99, 132)',
-						borderWidth: 2,
-						// borderColor: 'rgba(200, 200, 200, 0.75)',
-						// hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-						// hoverBorderColor: 'rgba(200, 200, 200, 1)',
-						data: score
-					}
-                ]   
-            };
-            ///////////////////////////////////////
-
+			};
 			var ctx = $("#myChart");
-			var barGraph = new Chart(ctx, {
-				type: 'horizontalBar',
-                data: chartdata,
-                options: {
-					layout: {
-						padding: {
-							left: 0,
-							right: 0,
-							top: 0,
-							bottom: 0
-						  }
-						},
-                    title: {
-                        display: false,
-						text: 'Type of Instruments',
-						// padding: 5
-                    },
-
-                    legend: {
-                        display: false,
-                        
+			new Chart(ctx, {
+				data: data,
+				type: 'polarArea',
+				options: {
+					legend: {
+                        display: false
 					},
-
-					scales: {
-						xAxes: [{
-							gridLines: {
-								display:true	
-							},
-							
-							
-
-						}],
-
-                        yAxes: [{
-                            ticks: {
-                                max: 10,
-                                min: 0,
-								stepSize: 2,
-								
-							},
-							
-							gridLines: {
-								display:false
-							}
-                        }]
-                    }
-                },
-            });
+					
+					layout: {
+                        padding: {
+                            left: 0,
+                            right: 0,
+                            top: 0,
+                            bottom: 0,
+                          }
+                        },
+				}
+				
+			});
+            
 		}
 	});
 });

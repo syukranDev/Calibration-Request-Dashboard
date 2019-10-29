@@ -63,7 +63,7 @@ $(document).ready(function(){
                             left: -50,
                             right: 0,
                             top: 0,
-                            bottom: -20
+                            bottom: -50,
                           }
                         },
             scales: {
@@ -84,12 +84,8 @@ $(document).ready(function(){
                             gridLines: {
                                         display: false,
                                         drawBorder: false
-                                    },
-                            ticks: {
-                                max: 12,
-                                min: 0,
-                                stepSize: 2
-                            },
+                                    }
+                            
                         }]
             },
             

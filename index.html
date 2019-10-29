@@ -61,14 +61,14 @@
                     Row 1
       --------------------------------->
     <div class="container-fluid mb-3">
-      <p class="mt-1 text-center" style="font-size: 20px; margin-bottom: .5rem;font-family: 'Patua One', cursive;">Dashboard | <span id="update_time"></span> | <span class="blink" id="runtime"></span></p>
+      <p class="mt-1 text-right mb-1" style="font-size: 20px; font-family: 'Patua One', cursive;">Dashboard | <i class="fas fa-xs fa-phone-alt" style="color:green; vertical-align: middle;"></i> <span class="text-success">Ext. 255</span> |  <span id="update_time"></span> | <span class="blink" id="runtime"></span></p>
       <div class="row ">
         <div class="col-lg-4 box" style="padding-right: 0px">
           <div class="card shadow_custom mx-n2 h-100 ">
             <div class="card-body pb-0 ">
                 <div class="row mb-0">
                     <div class="col-7">
-                        <h6 class="">Total Calibration Request </h6>
+                        <h6 class="">Total Calibration Job Request </h6>
                     </div>
                     <div class="col-5 ">
                         <select>
@@ -83,9 +83,9 @@
                  
               
             </div>
-            <div class="30 hideContent m-3"><canvas id="mainChart_30" width="100%" height="44%"></canvas></div>
-            <div class="7 hideContent m-3"><canvas id="mainChart_7" width="100%" height="44%"></canvas></div>
-            <div class="all hideContent m-3"><canvas id="mainChart_all" width="100%" height="44%"></canvas></div>
+            <div class="30 hideContent m-3"><canvas id="mainChart_30" width="100%" height="60%"></canvas></div>
+            <div class="7 hideContent m-3"><canvas id="mainChart_7" width="100%" height="60%"></canvas></div>
+            <div class="all hideContent m-3"><canvas id="mainChart_all" width="100%" height="60%"></canvas></div>
           </div>
         </div>
 
@@ -94,16 +94,16 @@
               <div class="card-body pb-0">
                 <h6 class="card-title"> Total Cost Saving <small class="text-muted">Last 30 days..</small></h6>
               </div>
-            <canvas id="costChart" class="mt-3 mb-3" width="100%" height="44%"></canvas>
+            <canvas id="costChart" class="mt-3 mb-3" width="100%" height="60%"></canvas>
             </div>
           </div>
 
-        <div class="col-lg-4 box" >
+        <div class="col-lg-4 box">
           <div class="card shadow_custom mx-n2 h-100">
             <div class="card-body pb-0">
                 <h6 class="card-title"> Total Inventory  <small class="text-muted">Last 7 days..</small></h6>
             </div>
-            <canvas id="myChart" class="mt-3 mb-3 " width="100%" height="44%"></canvas>
+            <canvas id="myChart" class="mt-3 mb-3 " width="100%" height="60%"></canvas>
           </div>
         </div>
 
@@ -123,7 +123,7 @@
                 <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="fas fa-check fa-xs" style="color: #0f9b0f"></i><span id=total_calCompleted></span></p>
                 
               </div>
-              <canvas id="requestCompleted_chartR2"  width="100%" height="40%"></canvas>
+              <canvas id="requestCompleted_chartR2"  width="100%" height="30%"></canvas>
             </div>
           </div>
           <div class="col-lg-2 box" style="padding-right: 0px">
@@ -157,7 +157,7 @@
           <div class="col-lg-2 box" style="padding-right: 0px"> 
             <div class="card shadow_custom mx-n2 h-100">
               <div class="card-body" style="padding:0.625rem">
-                <h6 class="card-title pl-2 mb-0"><small class="text-muted">Top Requestor</small></h6>
+                <h6 class="card-title pl-2 mb-0"><small class="text-muted">Top Calibrated Item</small></h6>
                 <!-- <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="far fa-clock fa-xs"></i> 123<sup style="font-size:0.9rem"> HRS</sup></span></p> -->
               </div>
               <ul class="list-group" style="font-size: 12px">
@@ -168,13 +168,18 @@
                 </ul>
             </div>
           </div>
-          <div class="col-lg-2 box">
+          <div class="col-lg-2 box"> 
             <div class="card shadow_custom mx-n2 h-100">
-              <div class="card-body" style="padding:0.625rem; padding-bottom:0.3;">
-                <h6 class="card-title pl-2"><small class="text-muted">Run Time</small></h6>
-                <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="far fa-clock fa-xs"></i> 40<sup style="font-size:0.9rem"> HRS</sup></p>
-                <canvas id="chartSix"  width="100%" height="40%"></canvas>
+              <div class="card-body" style="padding:0.625rem">
+                <h6 class="card-title pl-2 mb-0"><small class="text-muted">Top Requestor</small></h6>
+                <!-- <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="far fa-clock fa-xs"></i> 123<sup style="font-size:0.9rem"> HRS</sup></span></p> -->
               </div>
+              <ul class="list-group" style="font-size: 12px">
+                  <li class="list-group-item pb-1 pt-1"><span id="top1_owner"></span></li>
+                  <li class="list-group-item pb-1 pt-1"><span id="top2_owner"></span></li>
+                  <li class="list-group-item pb-1 pt-1"><span id="top3_owner"></span></li>
+                  
+                </ul>
             </div>
           </div>
           
@@ -191,14 +196,15 @@
                   <h6 class="card-title"> Calibration Request Form <small class="text-muted">Last 8 requests.. </small><a href="page_status.html"> More</a></h6>
                   <h1></h1>
                   <!-- table example -->
-                  <table class="table-sm table-striped" width="100%" style="font-size: 14px">
+                  <table class="table-sm table-striped mt-3" width="100%" style="font-size: 14px">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">EIN Number</th>
                         <th scope="col">Item Description</th>
                         <th scope="col">Date Received</th>
-                        <th scope="col">Cal Status</th>
+                        <th scope="col">Job Status</th>
+                        <!-- <th scope="col">Shipping</th> -->
                       </tr>
                     </thead>
                     <tbody id="table1">
@@ -245,86 +251,11 @@
            </div> 
 
           <!---------------------------------
-                              Row 3
+                              Row 4
           --------------------------------->
-          <div class="row mt-2" style="padding-top: 5px">
-            <div class="col-lg-6 box" style="padding-right: 0px">
-              <div class="card shadow_noZoom mx-n2 h-100">
-                <div class="card-body">
-                  <h6 class="card-title"> Calibration Request Form <small class="text-muted">Last 8 requests.. </small></h6>
-                  <p>test</p>
-                  <p>test</p>
-                  <p>test</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6 box" style="padding-right: 0px">
-              <div class="card shadow_noZoom mx-n2 h-100">
-                <div class="card-body">
-                  <h6 class="card-title"> Calibration Request Form <small class="text-muted">Last 8 requests.. </small></h6>
-                  <!--Carousel Wrapper-->
-                  <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-1-half" data-ride="carousel">
-                    <!--Indicators-->
-                    <ol class="carousel-indicators">
-                      <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-2" data-slide-to="1"></li>
-                      <li data-target="#carousel-example-2" data-slide-to="2"></li>
-                    </ol>
-                    <!--/.Indicators-->
-                    <!--Slides-->
-                    <div class="carousel-inner" role="listbox">
-                      <div class="carousel-item active">
-                        <div class="view">
-                          <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(105).jpg" alt="First slide">
-                          <div class="mask rgba-black-light"></div>
-                        </div>
-                        <div class="carousel-caption">
-                          <h3 class="h3-responsive">This is the first title</h3>
-                          <p>First text</p>
-                        </div>
-                      </div>
-                      <div class="carousel-item">
-                        <!--Mask color-->
-                        <div class="view">
-                          <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(115).jpg" alt="Second slide">
-                          <div class="mask rgba-black-light"></div>
-                        </div>
-                        <div class="carousel-caption">
-                          <h3 class="h3-responsive">Thir is the second title</h3>
-                          <p>Secondary text</p>
-                        </div>
-                      </div>
-                      <div class="carousel-item">
-                        <!--Mask color-->
-                        <div class="view">
-                          <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(108).jpg" alt="Third slide">
-                          <div class="mask rgba-black-light"></div>
-                        </div>
-                        <div class="carousel-caption">
-                          <h3 class="h3-responsive">This is the third title</h3>
-                          <p>Third text</p>
-                        </div>
-                      </div>
-                    </div>
-                    <!--/.Slides-->
-                    <!--Controls-->
-                    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                    <!--/.Controls-->
-                  </div>
-                  <!--/.Carousel Wrapper-->
-                </div>
-              </div>
-            </div>
-          </div>
-
+          
+          
+         
           <!------ <body> ends here ------>
     </div>
 
@@ -376,13 +307,7 @@
           $("#runtime").html("<span style=\"color: RED\">" +  "CAL RUN-TIME CLOSED" + "</span>");
         }
       
-      
-    
-      
-      
-      
-    
-
+        
     
 
     </script>
