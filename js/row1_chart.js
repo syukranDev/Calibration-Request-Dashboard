@@ -19,8 +19,8 @@ $(document).ready(function(){
             var data = {
 				datasets: [{
 					data: score,
-					backgroundColor: "rgba(255, 99, 132, 0.5)",
-					// borderColor: 'rgb(255, 99, 132)',
+					backgroundColor: "rgba(42, 82, 152, 0.5)",
+					borderColor: 'rgb(42, 82, 152)',
 					borderWidth: 1,
 				}],
 				labels: player,
@@ -73,9 +73,9 @@ $(document).ready(function(){
 			var ctx = document.getElementById("costChart").getContext('2d');
 
 			var gradientFill = ctx.createLinearGradient(0, 0, 0, 290);
-			gradientFill.addColorStop(0, "rgba(255, 99, 132, 1)");
-			gradientFill.addColorStop(1, "rgba(255, 99, 132, 0.1)");
-				
+			gradientFill.addColorStop(0, "rgba(42, 82, 152, 1)");
+			gradientFill.addColorStop(1, "rgba(42, 82, 152, 0.1)");
+				//44, 62, 80 black nice
 
 			var myLineChart = new Chart(ctx, {
 			type: 'line',
@@ -87,7 +87,7 @@ $(document).ready(function(){
 					data: score,
 					backgroundColor: gradientFill,
 					borderColor: [
-						'rgb(255, 99, 132)',
+						'rgb(42, 82, 152)',
 					],
 					borderWidth: 2,
 					pointBorderColor: "#fff",
@@ -182,8 +182,8 @@ $(document).ready(function(){
 					{
 						//fill: false,
 						//backgroundColor: '#c31432',
-						backgroundColor: 'rgba(255, 99, 132, 0.1)',
-						borderColor: 'rgb(255, 99, 132)',
+						backgroundColor: 'rgba(42, 82, 152, 0.4)',
+						borderColor: 'rgb(42, 82, 152)',
 						borderWidth: 2,
 						pointRadius: 1,
 						// ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
@@ -286,8 +286,8 @@ $(document).ready(function () {
 					{
 						//fill: false,
 						//backgroundColor: '#c31432',
-						backgroundColor: 'rgba(255, 99, 132, 0.1)',
-						borderColor: 'rgb(255, 99, 132)',
+						backgroundColor: 'rgba(42, 82, 152, 0.1)',
+						borderColor: 'rgb(42, 82, 152)',
 						borderWidth: 2,
 						pointRadius: 1,
 						data: score
@@ -304,7 +304,7 @@ $(document).ready(function () {
 				options: {
 					elements: {
 						line: {
-							tension: 0 // disables bezier curves
+							tension: 0.4 // disables bezier curves
 						}
 					},
 					title: {
@@ -386,8 +386,8 @@ $(document).ready(function () {
 					{
 						//fill: false,
 						//backgroundColor: '#c31432',
-						backgroundColor: 'rgba(255, 99, 132, 0.1)',
-						borderColor: 'rgb(255, 99, 132)',
+						backgroundColor: 'rgba(42, 82, 152, 0.1)',
+						borderColor: 'rgb(42, 82, 152)',
 						borderWidth: 2,
 						pointRadius: 1,
 						data: score

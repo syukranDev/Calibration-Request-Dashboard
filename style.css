@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:700|Patua+One&display=swap');
-body#homepage{
-    /* background-color:  #fafbfe; */
-    background-color: #F2EEFA;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:700&display=swap');
 
+body#homepage{
+    background-color:  #fafbfe; 
+    /* background-color: #F2EEFA; */
+    /* background-color: #182848; */
 }
 
 .navbar {
@@ -65,6 +67,16 @@ i {
 tr#highlight:hover{
     background-color:rgba(0, 119, 255, 0.1);
 }
+
+.titleFont {
+    font-family: 'Source Sans Pro', sans-serif;
+    
+}
+
+/* feedback star*/
+.checked {
+    color: orange;
+  }
 
 
 

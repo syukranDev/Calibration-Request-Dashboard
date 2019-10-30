@@ -180,5 +180,5 @@ $(document).ready(function () {
     // else if (text == changeText2) { $(this).html("<img><img>"); }
   });
 }); 
-
+ 
 

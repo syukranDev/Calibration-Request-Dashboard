@@ -16,25 +16,12 @@ $(document).ready(function(){
 			}
 			//console.log(player);
 			//player.sort();
-			/////// graph info
-            var chartdata = {
-				labels: player,
-				datasets : [
-					{
-						backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgb(255, 99, 132)',
-                        borderWidth: 1,
-                        pointRadius: 0,
-						data: score
-					}
-                ]   
-            };
-            //
+			
             var ctx = document.getElementById("requestCompleted_chartR2").getContext('2d');
 
             var gradientFill = ctx.createLinearGradient(0, 0, 0, 290);
-            gradientFill.addColorStop(0, "rgba(255, 99, 132, 0.5)");
-            gradientFill.addColorStop(1, "rgba(255, 99, 132, 0.1)");
+            gradientFill.addColorStop(0, "rgba(42, 82, 152, 0.5)");
+            gradientFill.addColorStop(1, "rgba(42, 82, 152, 0.1)");
                 
             
             var myLineChart = new Chart(ctx, {
@@ -47,7 +34,7 @@ $(document).ready(function(){
                     data: score, // Y-axis data
                     backgroundColor: gradientFill,
                     borderColor: [
-                        'rgb(255, 99, 132)',
+                        'rgb(42, 82, 152)',
                     ],
                     borderWidth: 1,
                     pointRadius: 10,
@@ -124,25 +111,12 @@ $(document).ready(function(){
 			}
 			//console.log(player);
 			//player.sort();
-			/////// graph info
-            var chartdata = {
-				labels: player,
-				datasets : [
-					{
-						backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgb(255, 99, 132)',
-                        borderWidth: 1,
-                        pointRadius: 0,
-						data: score
-					}
-                ]   
-            };
-            //
+			
             var ctx = document.getElementById("inReview_chartR2").getContext('2d');
 
             var gradientFill = ctx.createLinearGradient(0, 0, 0, 290);
-            gradientFill.addColorStop(0, "rgba(255, 99, 132, 0.5)");
-            gradientFill.addColorStop(1, "rgba(255, 99, 132, 0.1)");
+            gradientFill.addColorStop(0, "rgba(42, 82, 152, 0.5)");
+            gradientFill.addColorStop(1, "rgba(42, 82, 152, 0.1)");
                 
             
             var myLineChart = new Chart(ctx, {
@@ -155,7 +129,7 @@ $(document).ready(function(){
                     data: score, // Y-axis data
                     backgroundColor: gradientFill,
                     borderColor: [
-                        'rgb(255, 99, 132)',
+                        'rgb(42, 82, 152)',
                     ],
                     borderWidth: 1,
                     pointRadius: 10,
@@ -231,73 +205,73 @@ $(document).ready(function(){
             //
             var ctx = document.getElementById("calCost_chartR2").getContext('2d');
 
-var gradientFill = ctx.createLinearGradient(0, 0, 0, 290);
-gradientFill.addColorStop(0, "rgba(255, 99, 132, 0.5)");
-gradientFill.addColorStop(1, "rgba(255, 99, 132, 0.1)");
-	
+            var gradientFill = ctx.createLinearGradient(0, 0, 0, 290);
+            gradientFill.addColorStop(0, "rgba(42, 82, 152, 0.5)");
+            gradientFill.addColorStop(1, "rgba(42, 82, 152, 0.1)");
+                
 
-var myLineChart = new Chart(ctx, {
-type: 'line',
-data: {
-	labels: player, // X-axis Data
-	datasets: [
-	{
-		//label: "Your title goes here",
-		data: score, // Y-axis data
-		backgroundColor: gradientFill,
-		borderColor: [
-			'rgb(255, 99, 132)',
-		],
-        borderWidth: 1,
-        pointRadius: 0,
-		// pointBorderColor: "#fff",
-		// pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
-	}
-	]
-},
-options: {
-		 //Your option here		
-			layout: {
-					padding: {
-						left: -50,
-						right: 0,
-						top: 0,
-						bottom: -20
-						}
-			},
+            var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: player, // X-axis Data
+                datasets: [
+                {
+                    //label: "Your title goes here",
+                    data: score, // Y-axis data
+                    backgroundColor: gradientFill,
+                    borderColor: [
+                        'rgb(42, 82, 152)',
+                    ],
+                    borderWidth: 1,
+                    pointRadius: 0,
+                    // pointBorderColor: "#fff",
+                    // pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
+                }
+                ]
+            },
+            options: {
+                    //Your option here		
+                        layout: {
+                                padding: {
+                                    left: -50,
+                                    right: 0,
+                                    top: 0,
+                                    bottom: -20
+                                    }
+                        },
 
-			scales: {
-					xAxes: [{
-						ticks: {
-							display: false 
-						},
-						gridLines: {
-									display: false,
-									drawBorder: false
-								}
-					}],
-		
-					yAxes: [{
-						ticks: {
-							display: false 
-						},
-						gridLines: {
-									display: false,
-									drawBorder: false
-								}
-					}]
-			},
-              
-			legend: {
-						display: false
-			},
-			//Show information on pointer
-			tooltips: {
-						enabled: false
-			}
-				
-		}
-});
+                        scales: {
+                                xAxes: [{
+                                    ticks: {
+                                        display: false 
+                                    },
+                                    gridLines: {
+                                                display: false,
+                                                drawBorder: false
+                                            }
+                                }],
+                    
+                                yAxes: [{
+                                    ticks: {
+                                        display: false 
+                                    },
+                                    gridLines: {
+                                                display: false,
+                                                drawBorder: false
+                                            }
+                                }]
+                        },
+                        
+                        legend: {
+                                    display: false
+                        },
+                        //Show information on pointer
+                        tooltips: {
+                                    enabled: false
+                        }
+                            
+                    }
+            });
             
             //
 		}
