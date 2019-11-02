@@ -15,7 +15,7 @@ $(document).ready(function () {
         
       }
      
-      console.log(score);
+      // console.log(score);
      
 
       var mymap = L.map('mapid').setView([5.312453, 100.293362], 12.5);

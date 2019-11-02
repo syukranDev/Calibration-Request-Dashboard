@@ -66,7 +66,10 @@ $(document).ready(function(){
             
                         yAxes: [{
                             ticks: {
-                                display: false 
+                                display: false,
+                                min: 0,
+                                max: 5,
+                                stepSize: 1
                             },
                             gridLines: {
                                         display: false,
@@ -162,7 +165,10 @@ $(document).ready(function(){
             
                         yAxes: [{
                             ticks: {
-                                display: false 
+                                display: false,
+                                min: 0,
+                                max: 5,
+                                stepSize: 1
                             },
                             gridLines: {
                                         display: false,

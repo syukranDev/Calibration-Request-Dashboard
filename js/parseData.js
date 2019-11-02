@@ -39,7 +39,7 @@ $.post('fetch_calCost.php', function (data) {
 
 // ----------------------Top Cost Savings by Item Data-------------------------- //
 $.post('topsales_by_item.php', function (data) {
-    console.log(data);
+    // console.log(data);
     var item = [];
     var totalSale = [];
     for(var i in data){
@@ -48,11 +48,11 @@ $.post('topsales_by_item.php', function (data) {
 
       item.push(data[i].instrumentDesc);
       totalSale.push(data[i]['ROUND(SUM(calCost),2)']);
-      console.log(i);
+      // console.log(i);
     }
     
     // console.log(totalSale);
-    console.log(item);
+    // console.log(item);
     $("#top1_sale").append("#1 " + item[0] + ": " + "<span class=\"text-success\">$" + totalSale[0] + "</span>");
     $("#top2_sale").append("#2 " + item[1] + ": " + "<span class=\"text-success\">$" + totalSale[1] + "</span>");
     $("#top3_sale").append("#3 " + item[2] + ": " + "<span class=\"text-success\">$" + totalSale[2] + "</span>");
@@ -61,7 +61,7 @@ $.post('topsales_by_item.php', function (data) {
  
  // ----------------------Top Requestor Data-------------------------- //
 $.post('toprequestors.php', function (data) {
-  console.log(data);
+  // console.log(data);
   var item = [];
   var totalOwner = [];
   for(var i in data){
@@ -70,11 +70,11 @@ $.post('toprequestors.php', function (data) {
 
     item.push(data[i].owner);
     totalOwner.push(data[i]['count(owner)']);
-    console.log(i);
+    // console.log(i);
   }
   
   // console.log(totalSale);
-  console.log(item);
+  // console.log(item);
   $("#top1_owner").append("#1 " + item[0] + ": " + "<span class=\"text-success\">" + totalOwner[0] + " requests</span>");
   $("#top2_owner").append("#2 " + item[1] + ": " + "<span class=\"text-success\">" + totalOwner[1] + " requests</span>");
   $("#top3_owner").append("#3 " + item[2] + ": " + "<span class=\"text-success\">" + totalOwner[2] + " requests</span>");
@@ -90,7 +90,7 @@ $.post('homepage_calRequestForm.php', function(data) {
     
       $("#table1").append("<tr>" +
                             "<td>" + item.id + "</td>" + 
-                            "<td>" + item.ein + "</td>" +
+                            "<td>" + item.ein_new + "</td>" +
                             "<td>" + item.instrumentDesc+ "</td>" +
                             "<td>" + item.dateReceived + "</td>" +
                             "<td>" + "<span class=\"statusColor\" style=\" font-style: italic;\">" +  item.status + "</span>" + "</td>" +
@@ -134,7 +134,7 @@ $.post('requestForm_table.php', function(data) {
     
       $("#formAll").append("<tr id=\"highlight\" data-toggle=\"collapse\" data-target=\".childData\">" +
                             "<td>" + item.id             +"</td>" +
-                            "<td>" + item.ein           +"</td>" +
+                            "<td>" + item.ein_new           +"</td>" +
                             "<td>" + item.instrumentDesc      +"</td>" +
                             "<td>" + item.dateReceived        +"</td>" +
                             "<td>" + item.siteCode            +"</td>" +
