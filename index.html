@@ -52,6 +52,9 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="documentation.html">Documentation</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="analytics.html">Analytic</a>
+            </li>
           </ul>
           <span class="navbar-text text-white" style="font-family: 'Merriweather', serif;">
             Calibration Status Dashboard
@@ -242,7 +245,7 @@
                                     <span class="badge badge-primary badge-pill">14</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-                                    <a href="#">Calibration Lab Personnel</a>
+                                    <a id="foo" href="#">Calibration Lab Personnel</a>
                                     <span class="badge badge-primary badge-pill">2</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
@@ -288,6 +291,51 @@
           <!---------------------------------
                               Row 4
           --------------------------------->
+
+
+            <!-- Your content goes here -->
+
+
+
+
+          <!--------------------------------------------------------------
+                                  Element (Hide)
+          ---------------------------------------------------------------->
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="" style="font-family: 'Patua One', cursive;">Calibration Lab Personnel</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" >
+                  <div class="row text-center">
+                      <div class="col-sm-6">
+                          <img src="static/img/avatar1.jpg" alt="..." height="100px" width="100px" class="rounded-circle shadow_custom mb-2">
+                          <p class="font-weight-bold">Ai Hwa Lam</p>
+                          <p class="font-italic">Sr. Calibration Engineer</p>
+                          <p><i class="fas fa-xs fa-phone-alt" style="color:green;"></i> Ext. 017</p>
+                      </div>
+                      <div class="col-sm-6">
+                          <img src="static/img/avatar2.jpg" alt="..." height="100px" width="100px" class="rounded-circle shadow_custom mb-2">
+                          <p class="font-weight-bold">Ainol Yusof</p>
+                          <p class="font-italic">Sr. Technical Specialist</p>
+                          <p><i class="fas fa-xs fa-phone-alt" style="color:green;"></i> Ext. 016</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           
           
          
@@ -341,6 +389,22 @@
           else {
           $("#runtime").html("<span style=\"color: RED\">" +  "CAL RUN-TIME CLOSED" + "</span>");
         }
+
+        //--------------------------
+        // Modal Quick Links
+        //--------------------------
+        var modal = $("#myModal").modal({
+            show: false
+        });
+        
+        
+        
+        $("#foo").click(function () {
+            var btn = $(this);
+            modal.modal("show");
+        });
+      
+
       
         
     

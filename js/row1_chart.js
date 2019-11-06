@@ -151,9 +151,9 @@ $(document).ready(function(){
 
 								yAxes: [{
 									ticks: {
-										max: 100,
+										max: 6000,
 										min: 0,
-										stepSize: 20,
+										stepSize: 1000,
 										
 									},
 									
@@ -312,12 +312,10 @@ $(document).ready(function () {
 					labels: player,
 					datasets: [
 						{
-							label: "Total Calibration Cost ($)",
+							//label: "Total Calibration Cost ($)",
 							data: score,
 							backgroundColor: gradientFill,
-							borderColor:
-								"rgba(42, 82, 152)",
-
+							borderColor: "rgba(42, 82, 152)",
 							borderWidth: 1,
 							pointBorderColor: "#fff",
 							pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
@@ -366,9 +364,9 @@ $(document).ready(function () {
 							
 
 							ticks: {
-								max: 12,
+								max: 20,
                                 min: 0,
-                                stepSize: 2
+                                stepSize: 4
 							},
 
 							gridLines: {
