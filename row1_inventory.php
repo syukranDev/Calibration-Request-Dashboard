@@ -16,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT InstrumentDesc, count(InstrumentDesc) FROM myplexus.myplexus_data group by InstrumentDesc LIMIT 9;");
+$query = sprintf("SELECT type, count(type) FROM myplexus.myplexus_data group by(type) LIMIT 3;");
 
 
 

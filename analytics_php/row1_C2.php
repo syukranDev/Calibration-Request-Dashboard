@@ -16,8 +16,8 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT id, ein_number, instrumentDesc, dateReceived, status FROM myplexus.myplexus_data ORDER BY id DESC LIMIT 9;");
-
+$query = sprintf("SELECT siteCode, count(siteCode) FROM myplexus.myplexus_data group by siteCode;");
+//SELECT siteCode, count(siteCode) FROM myplexus.myplexus_data WHERE dateReceived >= '7/22/2019' AND dateReceived <= '12/12/2019' group by siteCode;
 
 
 //execute query

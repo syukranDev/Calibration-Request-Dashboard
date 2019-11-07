@@ -12,8 +12,8 @@ $(document).ready(function(){
 			var score = [];
 
 			for(var i in data) {
-				player.push(data[i].InstrumentDesc);
-                score.push(data[i]['count(InstrumentDesc)']);
+				player.push(data[i].type);
+                score.push(data[i]['count(type)']);
 			}
 			
 			var ctx = document.getElementById("myChart").getContext('2d');
@@ -24,14 +24,14 @@ $(document).ready(function(){
 			//44, 62, 80 black nice
 
 			var myLineChart = new Chart(ctx, {
-				type: 'radar',
+				type: 'pie',
 				data: {
-					labels: player,
+					labels: ["Electrical", "Temperature", "Mechanical"],
 					datasets: [
 						{
 							label: "Total Calibration Cost ($)",
 							data: score,
-							backgroundColor: gradientFill,
+							backgroundColor: ["#f80759", "#4286f4", "#FDC830"],
 							//borderColor: "rgba(42, 82, 152)",
 							borderWidth: 2,
 							pointBorderColor: "#fff",
@@ -41,7 +41,7 @@ $(document).ready(function(){
 				},
 				options: {
 					legend: {
-                        display: false
+                        // display: false
 					},
 					
 					layout: {
@@ -87,6 +87,7 @@ $(document).ready(function(){
 				player.push(data[i].dateReceived);
 				score.push(data[i]['ROUND(sum(calCost),2)']);    
 			}
+			score = Array.from(score, item => item || "0");
 
 			// console.log(score);
 			//--------------------- chart goes here
@@ -109,9 +110,10 @@ $(document).ready(function(){
 					borderColor: [
 						'rgb(42, 82, 152)',
 					],
-					borderWidth: 2,
-					pointBorderColor: "#fff",
-					pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
+					borderWidth: 3,
+					pointRadius: 0,
+					// pointBorderColor: "#fff",
+					// pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
 				}
 				]
 			},
@@ -151,9 +153,9 @@ $(document).ready(function(){
 
 								yAxes: [{
 									ticks: {
-										max: 6000,
+										max: 8000,
 										min: 0,
-										stepSize: 1000,
+										stepSize: 2000,
 										
 									},
 									
@@ -261,9 +263,9 @@ $(document).ready(function(){
 							
 
                             ticks: {
-                                max: 10,
+                                max: 30,
                                 min: 0,
-                                stepSize: 2
+                                stepSize: 5
 							},
 							
 							gridLines: {
@@ -304,24 +306,28 @@ $(document).ready(function () {
 			var gradientFill = ctx.createLinearGradient(0, 0, 0, 290);
 			gradientFill.addColorStop(0, "rgba(42, 82, 152, 1)");
 			gradientFill.addColorStop(1, "rgba(42, 82, 152, 0.1)");
-			//44, 62, 80 black nice
+				//44, 62, 80 black nice
 
-			var myLineChart = new Chart(ctx, {
-				type: 'bar',
+				var myLineChart = new Chart(ctx, {
+				type: 'line',
 				data: {
 					labels: player,
 					datasets: [
-						{
-							//label: "Total Calibration Cost ($)",
-							data: score,
-							backgroundColor: gradientFill,
-							borderColor: "rgba(42, 82, 152)",
-							borderWidth: 1,
-							pointBorderColor: "#fff",
-							pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
-						}
+					{
+						label: "Total Calibration Cost ($)",
+						data: score,
+						backgroundColor: gradientFill,
+						borderColor: [
+							'rgb(42, 82, 152)',
+						],
+						borderWidth: 3,
+						pointRadius: 0,
+						pointBorderColor: "#fff",
+						pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
+					}
 					]
 				},
+
 				options: {
 					elements: {
 						line: {
@@ -352,9 +358,9 @@ $(document).ready(function () {
 							// },
 
 							type: 'time',
-							// position: 'bottom',
+							// //position: 'bottom',
 							time: {
-								// displayFormats: {'day': 'MM/YY'},
+								//  displayFormats: {'day': 'MM/YY'},
 								// tooltipFormat: 'DD/MM/YY',
 								unit: 'day',
 							}
@@ -364,9 +370,9 @@ $(document).ready(function () {
 							
 
 							ticks: {
-								max: 20,
+								max: 30,
                                 min: 0,
-                                stepSize: 4
+                                stepSize: 5
 							},
 
 							gridLines: {
@@ -471,9 +477,9 @@ $(document).ready(function () {
 						yAxes: [{
 					
 							ticks: {
-								max: 12,
+								max: 30,
                                 min: 0,
-                                stepSize: 2
+                                stepSize: 5
 							},
 
 							gridLines: {

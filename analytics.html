@@ -24,6 +24,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.1/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     
     <!-- CSS letak last  -->
     <link rel="stylesheet" href="style.css">
@@ -67,9 +69,25 @@
                     Row 1
       --------------------------------->
     <div class="container-fluid mb-3">
-      <p class="m-1" style="font-size: 20px; font-family: 'Patua One', cursive;">Deep Analysis</p>
+      <p class="m-1" style="font-size: 30px; font-family: 'Patua One', cursive;">Deep Analysis</p>
       
-      <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive; color: ;">Total Calibration Request</p>
+      <p class="m-1" style="font-size: 20px; font-family: 'Patua One', cursive;">Calibration Job Request</p>
+      <div class="row m-1 ">
+          <div class="col-sm-4 color-border">
+            <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Total Job Request (Last 30 days)</p>
+            <div id="chart"></div>
+          </div>
+          <div class="col-sm-4 color-border">
+            <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Total Job Request By Location</p>
+            <div id="chart2"></div>
+          </div>
+          <div class="col-sm-4 color-border">
+            <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Job Status</p>
+            <div id="chart3"></div>
+          </div>
+      </div>
+
+      <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive;">Calibration Cost</p>
       <div class="row m-1 ">
           <div class="col color-border">
             <img src="static/img/chart-example.png" height="100%" width="100%">
@@ -82,20 +100,7 @@
           </div>
       </div>
 
-      <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive;">Total Calibration Completed</p>
-      <div class="row m-1 ">
-          <div class="col color-border">
-            <img src="static/img/chart-example.png" height="100%" width="100%">
-          </div>
-          <div class="col color-border">
-              <img src="static/img/chart-example.png" height="100%" width="100%">
-          </div>
-          <div class="col color-border">
-              <img src="static/img/chart-example.png" height="100%" width="100%">
-          </div>
-      </div>
-
-      <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive;">Job Status</p>
+      <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive;">Inventory</p>
       <div class="row m-1 ">
           <div class="col color-border">
             <img src="static/img/chart-example.png" height="100%" width="100%">
@@ -123,7 +128,6 @@
         
         
     </div>
-
     
     <!-- Optional JavaScript -->
     <!-- <script src="plugin/Chart.js-2.8.0/dist/Chart.bundle.js"></script> -->
@@ -134,7 +138,7 @@
     <script type="text/javascript" src="js/row1_chart.js"></script>
     <script type="text/javascript" src="js/row2_chart.js"></script>
     <script type="text/javascript" src="js/parseData.js"></script>
-    
+    <script type="text/javascript" src="js/analytic_graph.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->

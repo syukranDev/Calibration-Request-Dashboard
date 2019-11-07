@@ -53,9 +53,9 @@ $.post('topsales_by_item.php', function (data) {
     
     // console.log(totalSale);
     // console.log(item);
-    $("#top1_sale").append("#1 " + item[0] + ": " + "<span class=\"text-success\">$" + totalSale[0] + "</span>");
-    $("#top2_sale").append("#2 " + item[1] + ": " + "<span class=\"text-success\">$" + totalSale[1] + "</span>");
-    $("#top3_sale").append("#3 " + item[2] + ": " + "<span class=\"text-success\">$" + totalSale[2] + "</span>");
+    $("#top1_sale").append("#1 " + item[0] + ": " + "<br>" + "<span class=\"text-success pl-4\">$" + totalSale[0] + "</span>");
+    $("#top2_sale").append("#2 " + item[1] + ": " + "<br>" + "<span class=\"text-success pl-4\">$" + totalSale[1] + "</span>");
+    $("#top3_sale").append("#3 " + item[2] + ": " + "<br>" + "<span class=\"text-success pl-4\">$" + totalSale[2] + "</span>");
     
   });
  
@@ -75,9 +75,9 @@ $.post('toprequestors.php', function (data) {
   
   // console.log(totalSale);
   // console.log(item);
-  $("#top1_owner").append("#1 " + item[0] + ": " + "<span class=\"text-success\">" + totalOwner[0] + " requests</span>");
-  $("#top2_owner").append("#2 " + item[1] + ": " + "<span class=\"text-success\">" + totalOwner[1] + " requests</span>");
-  $("#top3_owner").append("#3 " + item[2] + ": " + "<span class=\"text-success\">" + totalOwner[2] + " requests</span>");
+  $("#top1_owner").append("#1 " + item[0] + ": " + "<br>" + "<span class=\"text-success pl-4\">" + totalOwner[0] + " requests</span>");
+  $("#top2_owner").append("#2 " + item[1] + ": " + "<br>" + "<span class=\"text-success pl-4\">" + totalOwner[1] + " requests</span>");
+  $("#top3_owner").append("#3 " + item[2] + ": " + "<br>" + "<span class=\"text-success pl-4\">" + totalOwner[2] + " requests</span>");
   
 }); 
 
@@ -90,7 +90,7 @@ $.post('homepage_calRequestForm.php', function(data) {
     
       $("#table1").append("<tr>" +
                             "<td>" + item.id + "</td>" + 
-                            "<td>" + item.ein_new + "</td>" +
+                            "<td>" + item.ein_number + "</td>" +
                             "<td>" + item.instrumentDesc+ "</td>" +
                             "<td>" + item.dateReceived + "</td>" +
                             "<td>" + "<span class=\"statusColor\" style=\" font-style: italic;\">" +  item.status + "</span>" + "</td>" +
@@ -134,7 +134,7 @@ $.post('requestForm_table.php', function(data) {
     
       $("#formAll").append("<tr id=\"highlight\" data-toggle=\"collapse\" data-target=\".childData\">" +
                             "<td>" + item.id             +"</td>" +
-                            "<td>" + item.ein_new           +"</td>" +
+                            "<td>" + item.ein_number           +"</td>" +
                             "<td>" + item.instrumentDesc      +"</td>" +
                             "<td>" + item.dateReceived        +"</td>" +
                             "<td>" + item.siteCode            +"</td>" +
@@ -168,15 +168,18 @@ $.post('requestForm_table.php', function(data) {
 
 
 $(document).ready(function () {
-  var changeText1 = 'Completed';
-  // var changeText2 = 'In review';
+  var changeText1 = 'In Reviewing';
+  var changeText2 = 'Completed';
   var changeText3 = 'Approved';
 
   $('.statusColor').each(function()  {
     var text = $(this).text();
-    if (text == changeText1) { $(this).css({"color":"green"});}
+    // if (text == changeText1) { $(this).css({"color":"green"});}
+    if (text == changeText1) { $(this).html("<button type=\"button\" class=\"btn btn-info btn-xs\">In Review</button>");}
     // else if (text == changeText2) { $(this).text('ds');}
-    else if (text == changeText3) {  $(this).css({"color":"blue"});}
+    // else if (text == changeText3) {  $(this).css({"color":"blue"});}
+    else if (text == changeText2) { $(this).html("<button type=\"button\" class=\"btn btn-success btn-xs\">Completed</button>");}
+    else if (text == changeText3) { $(this).html("<button type=\"button\" class=\"btn btn-warning btn-xs\">Approved</button>");}
     // else if (text == changeText2) { $(this).html("<img><img>"); }
   });
 }); 
