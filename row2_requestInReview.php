@@ -16,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT dateReceived, status, count(status) FROM myplexus.myplexus_data WHERE(status LIKE  'In Review') group by dateReceived order by id DESC LIMIT 30;");
+$query = sprintf("SELECT dateReceived, status, count(status) FROM myplexus.myplexus_data WHERE(status LIKE  'In Reviewing') group by dateReceived order by id DESC;");
 
 
 

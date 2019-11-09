@@ -52,6 +52,9 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="documentation.html">Documentation</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="analytics.html">Analytic</a>
+            </li>
           </ul>
           <span class="navbar-text text-white" style="font-family: 'Merriweather', serif;">
             Calibration Status Dashboard
@@ -68,8 +71,9 @@
       <div class="row ">
         <div class="col-lg-4 box" style="padding-right: 0px">
           <div class="card shadow_custom mx-n2 h-100 ">
-            <div class="card-body pb-0 ">
-                <div class="row mb-0">
+            <div class="card-body pb-0">
+                <h6 class="card-title titleFont"> Total Job Request <small class="text-muted">Last 30 days..</small></h6>
+                <!-- <div class="row mb-0">
                     <div class="col-7">
                         <h6 class="titleFont">Total Calibration Job Request </h6>
                     </div>
@@ -80,13 +84,13 @@
                             <option value="all">All</option> 
                         </select>
                     </div>
-                 </div>
+                 </div> -->
               
                  
                  
               
             </div>
-            <div class="30 hideContent m-3"><canvas id="mainChart_30" width="100%" height="60%"></canvas></div>
+            <div class="30 h m-3"><canvas id="mainChart_30" width="100%" height="60%"></canvas></div>
             <div class="7 hideContent m-3"><canvas id="mainChart_7" width="100%" height="60%"></canvas></div>
             <div class="all hideContent m-3"><canvas id="mainChart_all" width="100%" height="60%"></canvas></div>
           </div>
@@ -121,36 +125,36 @@
         <div class="row mt-2" style="padding-top: 5px">
           <div class="col-lg-2 box" style="padding-right: 0px">
             <div class="card shadow_custom mx-n2 h-100">
-              <div class="card-body" style="padding:0.625rem">
-                <h6 class="card-title pl-2 titleFont"><small class="text-muted">Completed Cal Request</small></h6>
-                <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="fas fa-check fa-xs" style="color: #0f9b0f"></i><span id=total_calCompleted></span></p>
+              <div class="card-body pb-0 " style="padding:0.625rem">
+                <h6 class="card-title pl-2 "><small class="text-muted">Completed Cal Request</small></h6>
+                <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px; "><i class="fas fa-check fa-xs" style="color: #0f9b0f"></i><span id=total_calCompleted></span></p>
                 
               </div>
-              <canvas id="requestCompleted_chartR2"  width="100%" height="30%"></canvas>
+              <canvas id="requestCompleted_chartR2"  width="100%" height="60%"></canvas>
             </div>
           </div>
           <div class="col-lg-2 box" style="padding-right: 0px">
               <div class="card shadow_custom mx-n2 h-100">
                 <div class="card-body" style="padding:0.625rem">
-                  <h6 class="card-title pl-2 titleFont"><small class="text-muted">In-Review Cal Request</small></h6>
-                  <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="fas fa-clipboard-list fa-xs" style="color: #83a4d4"></i><span id=total_calReview></span></p>
+                  <h6 class="card-title pl-2 t"><small class="text-muted">In-Review Cal Request</small></h6>
+                  <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px; font-family: 'Roboto', sans-serif; "><i class="fas fa-clipboard-list fa-xs" style="color: #83a4d4"></i><span id=total_calReview></span></p>
                 </div>
-                <canvas id="inReview_chartR2"  width="100%" height="40%"></canvas>
+                <canvas id="inReview_chartR2"  width="100%" height="60%"></canvas>
               </div>
             </div>
             <div class="col-lg-2 box" style="padding-right: 0px">
               <div class="card shadow_custom mx-n2 h-100">
                 <div class="card-body" style="padding:0.625rem">
-                  <h6 class="card-title pl-2 titleFont"><small class="text-muted">Cost Savings</small></h6>
-                  <p class="font-weight-bold text-left  h2" style="position: absolute; left:10px"><i class="fas fa-caret-up" style="color: #0f9b0f; bottom:0px"></i><span id=total_calCost></span><sup style="font-size:0.9rem"> USD</sup></i></p>
+                  <h6 class="card-title pl-2 "><small class="text-muted">Cost Savings</small></h6>
+                  <p class="font-weight-bold text-left  h2" style="position: absolute; left:10px; font-family: 'Roboto', sans-serif; "><i class="fas fa-caret-up" style="color: #0f9b0f; bottom:0px; "></i><span id=total_calCost></span><sup style="font-size:0.9rem"> USD</sup></i></p>
                 </div>
-                <canvas id="calCost_chartR2"  width="100%" height="40%"></canvas>
+                <canvas id="calCost_chartR2"  width="100%" height="60"></canvas>
               </div>
             </div>
           <div class="col-lg-2 box" style="padding-right: 0px">
             <div class="card shadow_custom mx-n2 h-100">
               <div class="card-body" style="padding:0.625rem">
-                <h6 class="card-title pl-2 titleFont"><small class="text-muted">Outstanding Shipping</small></h6>
+                <h6 class="card-title pl-2"><small class="text-muted">Outstanding Shipping</small></h6>
                 <p class="font-weight-bold text-left blink h2" style="position: absolute; left: 20px"><i class="fas fa-shipping-fast fa-xs" style="color:#ED4264"></i> 3</p>
               </div>
               <canvas id="#"  width="100%" height="40%"></canvas>
@@ -160,7 +164,7 @@
           <div class="col-lg-2 box" style="padding-right: 0px"> 
             <div class="card shadow_custom mx-n2 h-100">
               <div class="card-body" style="padding:0.625rem">
-                <h6 class="card-title pl-2 mb-0 titleFont"><small class="text-muted">Top Calibrated Item</small></h6>
+                <h6 class="card-title pl-2 mb-0"><small class="text-muted">Top Calibrated Item</small></h6>
                 <!-- <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="far fa-clock fa-xs"></i> 123<sup style="font-size:0.9rem"> HRS</sup></span></p> -->
               </div>
               <ul class="list-group" style="font-size: 12px">
@@ -174,7 +178,7 @@
           <div class="col-lg-2 box"> 
             <div class="card shadow_custom mx-n2 h-100">
               <div class="card-body" style="padding:0.625rem">
-                <h6 class="card-title pl-2 mb-0 titleFont"><small class="text-muted">Top Requestor</small></h6>
+                <h6 class="card-title pl-2 mb-0"><small class="text-muted">Top Requestor</small></h6>
                 <!-- <p class="font-weight-bold text-left  h2" style="position: absolute; left: 20px"><i class="far fa-clock fa-xs"></i> 123<sup style="font-size:0.9rem"> HRS</sup></span></p> -->
               </div>
               <ul class="list-group" style="font-size: 12px">
@@ -242,7 +246,7 @@
                                     <span class="badge badge-primary badge-pill">14</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-                                    <a href="#">Calibration Lab Personnel</a>
+                                    <a id="foo" href="#">Calibration Lab Personnel</a>
                                     <span class="badge badge-primary badge-pill">2</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
@@ -288,6 +292,51 @@
           <!---------------------------------
                               Row 4
           --------------------------------->
+
+
+            <!-- Your content goes here -->
+
+
+
+
+          <!--------------------------------------------------------------
+                                  Element (Hide)
+          ---------------------------------------------------------------->
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="" style="font-family: 'Patua One', cursive;">Calibration Lab Personnel</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" >
+                  <div class="row text-center">
+                      <div class="col-sm-6">
+                          <img src="static/img/avatar1.jpg" alt="..." height="100px" width="100px" class="rounded-circle shadow_custom mb-2">
+                          <p class="font-weight-bold" style="font-family: 'Roboto', sans-serif;">Ai Hwa Lam</p>
+                          <p class="font-italic">Sr. Calibration Engineer</p>
+                          <p><i class="fas fa-xs fa-phone-alt" style="color:green;"></i> Ext. 017</p>
+                      </div>
+                      <div class="col-sm-6">
+                          <img src="static/img/avatar2.jpg" alt="..." height="100px" width="100px" class="rounded-circle shadow_custom mb-2">
+                          <p class="font-weight-bold" style="font-family: 'Roboto', sans-serif;">Ainol Yusof</p>
+                          <p class="font-italic">Sr. Technical Specialist</p>
+                          <p><i class="fas fa-xs fa-phone-alt" style="color:green;"></i> Ext. 016</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           
           
          
@@ -341,6 +390,22 @@
           else {
           $("#runtime").html("<span style=\"color: RED\">" +  "CAL RUN-TIME CLOSED" + "</span>");
         }
+
+        //--------------------------
+        // Modal Quick Links
+        //--------------------------
+        var modal = $("#myModal").modal({
+            show: false
+        });
+        
+        
+        
+        $("#foo").click(function () {
+            var btn = $(this);
+            modal.modal("show");
+        });
+      
+
       
         
     

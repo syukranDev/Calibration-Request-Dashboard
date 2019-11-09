@@ -16,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT id, ein_number, instrumentDesc, dateReceived, status FROM myplexus.myplexus_data ORDER BY id DESC LIMIT 9;");
+$query = sprintf("SELECT status, count(status) FROM myplexus.myplexus_data group by status;");
 
 
 
