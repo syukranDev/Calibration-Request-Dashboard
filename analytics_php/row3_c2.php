@@ -16,8 +16,8 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT id, dateReceived, ROUND(sum(calCost),2) FROM myplexus.myplexus_data group by dateReceived order by id DESC;");
-//SELECT siteCode, count(siteCode) FROM myplexus.myplexus_data WHERE dateReceived >= '7/22/2019' AND dateReceived <= '12/12/2019' group by siteCode;
+$query = sprintf("SELECT owner, count(owner) FROM myplexus.myplexus_data group by owner ORDER BY count(owner) DESC;");
+
 
 
 //execute query

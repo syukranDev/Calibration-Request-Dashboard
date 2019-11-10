@@ -86,6 +86,11 @@ tr#highlight:hover{
     border-radius:3px
 }
 
+/* chart size */
+.chartSize{
+    height: 200px;
+    width: 100%;
+}
 
 
 
