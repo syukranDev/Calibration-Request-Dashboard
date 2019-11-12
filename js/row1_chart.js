@@ -22,9 +22,9 @@ $(document).ready(function(){
 			gradientFill.addColorStop(0, "rgba(42, 82, 152, 1)");
 			gradientFill.addColorStop(1, "rgba(42, 82, 152, 0.1)");
 			//44, 62, 80 black nice
-
+			
 			var myLineChart = new Chart(ctx, {
-				type: 'pie',
+				type: 'bar',
 				data: {
 					labels: ["Electrical", "Temperature", "Mechanical"],
 					datasets: [
@@ -41,7 +41,7 @@ $(document).ready(function(){
 				},
 				options: {
 					legend: {
-                        // display: false
+                        display: false
 					},
 					
 					layout: {
@@ -55,9 +55,9 @@ $(document).ready(function(){
 
 					yAxes: [{
 						ticks: {
-							min: 100,
+							min: 450,
 							max: 120,
-							stepSize: 5
+							stepSize: 20
 						}
 					}]
 					
@@ -309,7 +309,7 @@ $(document).ready(function () {
 				//44, 62, 80 black nice
 
 				var myLineChart = new Chart(ctx, {
-				type: 'line',
+				type: 'bar',
 				data: {
 					labels: player,
 					datasets: [
@@ -357,13 +357,13 @@ $(document).ready(function () {
 							// 	minRotation: 0
 							// },
 
-							type: 'time',
-							// //position: 'bottom',
-							time: {
-								//  displayFormats: {'day': 'MM/YY'},
-								// tooltipFormat: 'DD/MM/YY',
-								unit: 'day',
-							}
+							// type: 'time',
+							// position: 'bottom',
+							// time: {
+							// 	//  displayFormats: {'day': 'MM/YY'},
+								
+							// 	unit: 'day',
+							// }
 						}],
 
 						yAxes: [{

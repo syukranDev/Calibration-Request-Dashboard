@@ -198,6 +198,8 @@ $(document).ready(function () {
         score.push(data[i]['ROUND(sum(calCost),2)']);
       }
 
+      score = Array.from(score, item => item || "0");
+
       var options = {
         title: {
           text: "Total Calibration Cost",

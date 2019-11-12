@@ -10,24 +10,36 @@
 // "</tr>"
 
 // ----------------------Fetch Calibration 'Volume' Data-------------------------- //
-$.post('fetch_calVolume.php', function(data) {
-    $.each(data, function(i, item) {
-        $("#total_calVolume").append( " " + item['count(id)'] );
-    });  
-});
+// $.post('fetch_calVolume.php', function(data) {
+//     $.each(data, function(i, item) {
+//         $("#total_calVolume").append( " " + item['count(id)'] );
+//     });  
+// });
 
 // ----------------------Fetch Calibration 'Completed' Data-------------------------- //
-$.post('fetch_calCompleted.php', function (data) {
-  $.each(data, function (i, item) {
-    $("#total_calCompleted").append(" " + item['count(status)']);
-  });
-});
+// $.post('fetch_calCompleted.php', function (data) {
+//   $.each(data, function (i, item) {
+//     $("#total_calCompleted").append(" " + item['count(status)']);
+//   });
+// });
 
 // ----------------------Fetch Calibration 'In-Review' Data-------------------------- //
 $.post('fetch_calReview.php', function (data) {
-  $.each(data, function (i, item) {
-    $("#total_calReview").append(" " + item['count(status)']);
-  });
+  var score= [];
+  for(var i in data) {
+    score.push(data[i]['count(status)']);
+  }
+  
+  var numbers = score.map(Number);
+  console.log(numbers);
+  //Complete, Approved,  Reviewing
+  $("#total_calCompleted").append(" " + score[0]);
+  $("#total_calApproved").append(" " + score[1]);
+  $("#total_calReviewing").append(" " + score[2]);
+
+
+
+
 });
 
 // ----------------------Fetch Calibration 'Cost' Data-------------------------- //
@@ -53,9 +65,9 @@ $.post('topsales_by_item.php', function (data) {
     
     // console.log(totalSale);
     // console.log(item);
-    $("#top1_sale").append("#1 " + item[0] + ": " + "<br>" + "<span class=\"text-success pl-4\">$" + totalSale[0] + "</span>");
-    $("#top2_sale").append("#2 " + item[1] + ": " + "<br>" + "<span class=\"text-success pl-4\">$" + totalSale[1] + "</span>");
-    $("#top3_sale").append("#3 " + item[2] + ": " + "<br>" + "<span class=\"text-success pl-4\">$" + totalSale[2] + "</span>");
+    $("#top1_sale").append("#1 " + item[0] + ": " + "<br>" + "<span class=\"text-success pl-4\">USD " + totalSale[0] + "</span>");
+    $("#top2_sale").append("#2 " + item[1] + ": " + "<br>" + "<span class=\"text-success pl-4\">USD " + totalSale[1] + "</span>");
+    $("#top3_sale").append("#3 " + item[2] + ": " + "<br>" + "<span class=\"text-success pl-4\">USD " + totalSale[2] + "</span>");
     
   });
  

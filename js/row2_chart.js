@@ -208,14 +208,14 @@ $(document).ready(function(){
 				player.push(data[i].dateReceived);
                 score.push(data[i]['ROUND(sum(calCost),2)']);
             }
-            score = Array.from(score, item => item || "0");
+            score = Array.from(score, item => item || "0"); //if value null ganti 'zero'
             //console.log(score);
             //
             var ctx = document.getElementById("calCost_chartR2").getContext('2d');
 
             var gradientFill = ctx.createLinearGradient(0, 0, 0, 290);
-            gradientFill.addColorStop(0, "rgba(42, 82, 152, 0.5)");
-            gradientFill.addColorStop(1, "rgba(42, 82, 152, 0.1)");
+            gradientFill.addColorStop(0, "rgba(173, 53, 186, 1)");
+            gradientFill.addColorStop(1, "rgba(173, 53, 186, 0.1)");
                 
 
             var myLineChart = new Chart(ctx, {
@@ -228,9 +228,9 @@ $(document).ready(function(){
                     data: score, // Y-axis data
                     backgroundColor: gradientFill,
                     borderColor: [
-                        'rgb(42, 82, 152)',
+                    '#AD35BA',
                     ],
-                    borderWidth: 3,
+                    borderWidth: 2,
                     pointRadius: 0,
                     // pointBorderColor: "#fff",
                     // pointBackgroundColor: "rgba(173, 53, 186, 0.1)",

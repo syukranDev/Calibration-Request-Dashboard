@@ -16,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT status, count(status) FROM myplexus.myplexus_data group by status LIMIT 1 OFFSET 2;");
+$query = sprintf("SELECT status, count(status) FROM myplexus.myplexus_data group by status;");
 
 
 
