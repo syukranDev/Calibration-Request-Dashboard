@@ -226,9 +226,9 @@ $(document).ready(function(){
                 {
                     //label: "Your title goes here",
                     data: score, // Y-axis data
-                    backgroundColor: gradientFill,
+                    backgroundColor: "rgba(40, 167, 69, 0.1)",
                     borderColor: [
-                    '#AD35BA',
+                    '#28a745',
                     ],
                     borderWidth: 2,
                     pointRadius: 0,
@@ -243,7 +243,7 @@ $(document).ready(function(){
                                 padding: {
                                     left: -50,
                                     right: 0,
-                                    top: 0,
+                                    top: -100,
                                     bottom: -20
                                     }
                         },

@@ -15,55 +15,67 @@ $(document).ready(function(){
 				player.push(data[i].type);
                 score.push(data[i]['count(type)']);
 			}
-			
-			var ctx = document.getElementById("myChart").getContext('2d');
 
-			var gradientFill = ctx.createLinearGradient(0, 0, 0, 290);
-			gradientFill.addColorStop(0, "rgba(42, 82, 152, 1)");
-			gradientFill.addColorStop(1, "rgba(42, 82, 152, 0.1)");
-			//44, 62, 80 black nice
+			var chartdata = {
+				labels: ["Electrical", "Temperature", "Mechanical"],
+				datasets: [
+					{
+						//fill: false,
+						//backgroundColor: '#c31432',
+						//rgb(54, 162, 235)
+						backgroundColor: 'rgba(54, 162, 235, 0.1)',
+						borderColor: 'rgb(54, 162, 235)',
+						borderWidth: 2,
+						pointRadius: 1,
+						data: score
+					}
+				]
+			};
 			
-			var myLineChart = new Chart(ctx, {
+			var ctx = $("#myChart");
+
+			var barGraph = new Chart(ctx, {
 				type: 'bar',
-				data: {
-					labels: ["Electrical", "Temperature", "Mechanical"],
-					datasets: [
-						{
-							label: "Total Calibration Cost ($)",
-							data: score,
-							backgroundColor: ["#f80759", "#4286f4", "#FDC830"],
-							//borderColor: "rgba(42, 82, 152)",
-							borderWidth: 2,
-							pointBorderColor: "#fff",
-							pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
-						}
-					]
-				},
+				data: chartdata,
+
 				options: {
-					legend: {
-                        display: false
-					},
-					
-					layout: {
-                        padding: {
-                            left: 0,
-                            right: 0,
-                            top: 0,
-                            bottom: 0,
-                          }
+					title: {
+						display: true,
+						text: 'Total Request By Instrument Type'
 					},
 
-					yAxes: [{
-						ticks: {
-							min: 450,
-							max: 120,
-							stepSize: 20
-						}
-					}]
+					legend: {
+						display: false,
+						
+					},
+					scales: {
+						xAxes: [{
+							gridLines: {
+								//  display: true
+							},
+
+							
+
+						}],
+
+						yAxes: [{
 					
-				}
-				
+							ticks: {
+								max: 500,
+                                min: 0,
+                                stepSize: 100
+							},
+
+							gridLines: {
+								// display: false
+							}
+						}]
+					}
+				},
+
+
 			});
+			
             
 		}
 	});

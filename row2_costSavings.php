@@ -16,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT id, dateReceived, ROUND(sum(calCost),2) FROM myplexus.myplexus_data group by dateReceived order by id DESC LIMIT 14;");
+$query = sprintf("SELECT id, dateReceived, ROUND(sum(calCost),2) FROM myplexus.myplexus_data group by dateReceived order by id DESC;");
 
 
 
