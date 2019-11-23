@@ -23,8 +23,8 @@ $(document).ready(function(){
 						//fill: false,
 						//backgroundColor: '#c31432',
 						//rgb(54, 162, 235)
-						backgroundColor: 'rgba(54, 162, 235, 0.1)',
-						borderColor: 'rgb(54, 162, 235)',
+						backgroundColor: ['rgba(54, 162, 235, 0.3)', 'rgba(0,187,122,0.3)', 'rgba(254,176,25,0.3)'],
+						borderColor: ['rgb(54, 162, 235)', 'rgb(0,187,122)', 'rgb(254,176,25)'],
 						borderWidth: 2,
 						pointRadius: 1,
 						data: score

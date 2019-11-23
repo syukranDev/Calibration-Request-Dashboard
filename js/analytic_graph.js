@@ -286,7 +286,7 @@ $(document).ready(function () {
         },
         yaxis: {
           title: {
-            text: 'Frequency'
+            text: 'USD'
           }
         },
         // fill: {
@@ -431,12 +431,9 @@ $(document).ready(function () {
       // Since the array generated is in string, .map(Number) is used for integer conversion.
       // console.log(data_type);
       var options = {
-          title: {
-            text: "Inventory Type ",
-            align: "left"
-          },
+          
           chart: {
-            width: 380,
+            //width: 380,
             type: 'pie',
           },
           labels: ["Electrical", "Temperature", "Mechanical"],

@@ -16,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT owner, count(owner) FROM myplexus.myplexus_data group by owner ORDER BY count(owner) DESC LIMIT 5;");
+$query = sprintf("SELECT instrumentDesc, count(instrumentDesc) FROM myplexus.myplexus_data group by instrumentDesc ORDER BY count(instrumentDesc) DESC LIMIT 5;");
 
 
 

@@ -31,13 +31,13 @@
     <!---------------------------------
                     Navbar
       --------------------------------->
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark" >
         <a class="navbar-brand" href="#"><img src="static/img/plexus_favicon.png" width="30" height="30" class="d-inline-block align-top rounded" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarText" >
+          <ul class="navbar-nav mr-auto" style="font-size: 14px">
             <li class="nav-item active">
               <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -45,17 +45,15 @@
               <a class="nav-link text-white" href="page_status.html">Request Status</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="documentation.html">Documentation</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="analytics.html">Analytic</a>
+                <a class="nav-link text-white" href="analytics.html">KPI</a>
             </li>
           </ul>
-          <span class="navbar-text text-white">
+          <span class="navbar-text text-white" style="font-family: 'Merriweather', serif;">
             Calibration Status Dashboard
           </span>
         </div>
       </nav>
+
 
 
     <!-----------------------------------------------------------------------------------------------------------
@@ -67,11 +65,11 @@
         <a href="AddRequest.html" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add New Request</a>
         <table class="table table-sm table-condensed  table-bordered mt-3" style="border-collapse:collapse;font-size: 14px">
           <thead>
-              <tr class="table-warning" style="font-family: 'Helvetica', sans-serif;">
+              <tr class="table-warning text-center" style="font-family: 'Helvetica', sans-serif;">
                   <th>ID</th>
                   <th>EIN Number</th>
                   <th>Instrument Description</th>
-                  <th>Date Received</th>
+                  <th>Date Created</th>
                   <th>Site Code</th>
                   <th>Status</th>
               </tr>

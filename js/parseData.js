@@ -111,6 +111,36 @@ $.post('homepage_calRequestForm.php', function(data) {
   });
 });
 
+//----------------------Top Reuqestor (Analytic tab) -------------------------- //
+
+$.post('analytics_php/row3_c2.php', function(data) {
+  
+  $.each(data, function(i, item) {
+    
+    console.log(item['count(owner)']);
+      $("#tableContent").append("<tr>" +
+                                "<td>" + (i+1) + "</td>" + 
+                                "<td>" + item.owner + "</td>" +
+                                "<td>" + item['count(owner)'] + "</td>" +
+                                "</tr>"
+                            );
+  });
+});
+
+$.post('analytics_php/row3_c3.php', function(data) {
+  
+  $.each(data, function(i, item) {
+    
+    console.log(item['count(owner)']);
+      $("#tableContent2").append("<tr>" +
+                                "<td>" + (i+1) + "</td>" + 
+                                "<td>" + item.instrumentDesc + "</td>" +
+                                "<td>" + item['count(instrumentDesc)'] + "</td>" +
+                                "</tr>"
+                            );
+  });
+});
+
 // $(document).ready(function () {
 //   if ($('statusColor').text() === 'Completed') {  
 //     $('statusColor').css({"background-color":"green"}); 
@@ -142,27 +172,27 @@ $.post('homepage_calRequestForm.php', function(data) {
 
 $.post('requestForm_table.php', function(data) {
   $.each(data, function(i, item) {
-    calStatus = item.status;
+    //calStatus = item.status;
     
-      $("#formAll").append("<tr id=\"highlight\" data-toggle=\"collapse\" data-target=\".childData\">" +
-                            "<td>" + item.id             +"</td>" +
-                            "<td>" + item.ein_number           +"</td>" +
-                            "<td>" + item.instrumentDesc      +"</td>" +
-                            "<td>" + item.dateReceived        +"</td>" +
-                            "<td>" + item.siteCode            +"</td>" +
-                            "<td class=\"text-success\">" + "<span class=\"statusColor\" style=\" font-style: italic;\">" + item.status + "</span>" + "</td>" +
+    $("#formAll").append("<tr id=\"highlight\" data-toggle=\"collapse\" data-target=\".childData"+i+"\">" +
+                            "<td class=\"text-center\">" + item.id             +"</td>" +
+                            "<td class=\"text-center\">" + item.ein_number           +"</td>" +
+                            "<td class=\"pl-4\">" + item.instrumentDesc      +"</td>" +
+                            "<td class=\"text-center\">" + item.dateReceived        +"</td>" +
+                            "<td class=\"text-center\">" + item.siteCode            +"</td>" +
+                            "<td class=\"text-success text-center\">" + "<span class=\"statusColor\" style=\" font-style: italic;\">" + item.status + "</span>" + "</td>" +
                             "</tr>" +
                               "<tr>" +
                                 "<td colspan=6 class=\"hiddenRow\">" +
-                                    "<div class=\"collapse childData ml-5\" style=\"font-size: 13px\">" +
+                                    "<div class=\"collapse childData"+ i + " ml-5\" style=\"font-size: 13px\">" +
                                       "<div class=\"row\">" +
-                                          "<div class=\"col-4\">" + "Calibration Job: " + item.status     + "</div>" +
-                                          "<div class=\"col-4\">" + "Owner: "           + item.owner      + "</div>" +
-                                          "<div class=\"col-4\">" + "Serial Number: "   + item.serialNum  + "</div>" +
+                                          "<div class=\"col-4\">" + "Calibration Job: " + "<span class=\"text-success\">" + item.status  + "</span>"   + "</div>" +
+                                          "<div class=\"col-4\">" + "Date Received: "           + item.dateReceived   + "</div>" +
+                                          "<div class=\"col-4\">" + "Serial Number: "   + item.serialNum      + "</div>" +
                                       "</div>" +
                                       "<div class=\"row\">" +
-                                          "<div class=\"col-4\">" + "Date Received:  "   + item.dateReceived +  "</div>" +
-                                          "<div class=\"col-4\">" + "Calibration Cost: " + item.calCost      + "</div>" +
+                                          "<div class=\"col-4\">" + "Owner: "   + item.owner +  "</div>" +
+                                          "<div class=\"col-4\">" + "Date Completed: " + item.dateCompleted      + "</div>" +
                                           "<div class=\"col-4\">" + "Manufacturer: "     + item.manufacturer + "</div>" +
                                       "</div>" +
                                     "</div>" +
@@ -187,7 +217,7 @@ $(document).ready(function () {
   $('.statusColor').each(function()  {
     var text = $(this).text();
     // if (text == changeText1) { $(this).css({"color":"green"});}
-    if (text == changeText1) { $(this).html("<button type=\"button\" class=\"btn btn-info btn-xs\">In Review</button>");}
+    if (text == changeText1) { $(this).html("<button type=\"button\" class=\"btn btn-info btn-xs\">In Reviewing</button>");}
     // else if (text == changeText2) { $(this).text('ds');}
     // else if (text == changeText3) {  $(this).css({"color":"blue"});}
     else if (text == changeText2) { $(this).html("<button type=\"button\" class=\"btn btn-success btn-xs\">Completed</button>");}

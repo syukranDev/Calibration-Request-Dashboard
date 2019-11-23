@@ -53,10 +53,7 @@
               <a class="nav-link text-white" href="page_status.html">Request Status</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="documentation.html">Documentation</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="analytics.html">Analytic</a>
+                <a class="nav-link text-white" href="analytics.html">KPI</a>
             </li>
           </ul>
           <span class="navbar-text text-white" style="font-family: 'Merriweather', serif;">
@@ -70,7 +67,7 @@
                     Row 1
       --------------------------------->
     <div class="container-fluid mb-3">
-      <p class="mt-1 text-right mb-1" style="font-size: 20px; font-family: 'Patua One', cursive;">Dashboard | <i class="fas fa-xs fa-phone-alt" style="color:green; vertical-align: middle;"></i> <span class="text-success">Ext. 255</span> |  <span id="update_time"></span> | <span class="blink" id="runtime"></span></p>
+      <p class="mt-1 text-center mb-1" style="font-size: 20px; font-family: 'Patua One', cursive;">Dashboard | <i class="fas fa-xs fa-phone-alt" style="color:green; vertical-align: middle;"></i> <span class="text-success">Ext. 255</span> |  <span id="update_time"></span> | <span class="blink" id="runtime"></span></p>
       <div class="row ">
         <div class="col-lg-8 box" style="padding-right: 0px">
           <div class="card shadow_custom mx-n2 h-100 ">
@@ -246,7 +243,7 @@
                   <!-- This is some text within a card body. -->
                   <h6 class="card-title titleFont">Calibration Request By Location <small class="text-muted">(RIV,ISL,SS,HS)</small></h6>
                   <h1></h1>
-                  <div id="mapid" style="width: 100%; height: 350px;"></div>
+                  <div id="mapid" style="width: 100%; height: 300px;"></div>
                 </div>
               </div>
             </div>
@@ -259,7 +256,7 @@
                           <h6 class="card-title font-weight-bold">Quick Links</h6>
                             <ul class="list-group"  style="font-size: 14px">
                                   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-                                    <a href="#">User Guide Manual</a>
+                                    <a id="foo2"href="#">User Guide Manual</a>
                                     <span class="badge badge-primary badge-pill">14</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
@@ -267,11 +264,11 @@
                                     <span class="badge badge-primary badge-pill">2</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-                                      <a href="#">Feedback Form</a>
+                                      <a  href="#">Feedback Form</a>
                                       <span class="badge badge-primary badge-pill">1</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-                                      <a href="#">Under Construction</a>
+                                      <a href="yourData.html">Chart Utility</a>
                                       <span class="badge badge-primary badge-pill">1</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
@@ -353,6 +350,47 @@
             </div>
           </div>
 
+          <!-- Modal 2 -->
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="" style="font-family: 'Patua One', cursive;">Instruments Manual</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" >
+                    <div class="row text-center">
+                        <div class="col-sm">
+                            <h3>E</h3>
+                            <a href="#">Fluke_115.pdf</a><br>
+                            <a href="#">Datapaq_Q17.pdf</a><br>
+                            <a href="#">Fluke 114</a><br>
+                            <a href="#">dcpowersupply_2019.pdf</a><br>
+                            <a href="#">bkprecision_dc.pdf</a><br>
+                            <h3>M</h3>
+                            <a href="#">GNG Gauge STAR 30 MILS - 60 MILS.pdf</a><br>
+                            <a href="#">SAMTEC HAND CRIMPING TOOL.pdf</a><br>
+                            <a href="#">P50 Go No Go Gauge.pdf</a><br>
+                            <a href="#">CONNECTOR ALIGMENT JIG #1.pdf</a><br>
+                            <a href="#">469300IF1-107 Inspection jig.pdf</a><br>
+                            <h3>T</h3>
+                            <a href="#">ersa_reworkpdf</a><br>
+                            <a href="#">datapaq.pdf</a><br>
+                            <a href="#">thermometer.pdf</a><br>
+                            <a href="#">etc</a><br>
+                            <a href="#">etc</a><br>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
           
           
@@ -414,9 +452,18 @@
         var modal = $("#myModal").modal({
             show: false
         });
-        
-        
+
+        var modal = $("#myModal2").modal({
+          show: false
+        });
+
         $("#foo").click(function () {
+          var btn = $(this);
+          modal.modal("show");
+      });
+        
+        
+        $("#foo2").click(function () {
             var btn = $(this);
             modal.modal("show");
         });

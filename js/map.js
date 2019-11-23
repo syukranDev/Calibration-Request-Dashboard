@@ -21,40 +21,15 @@ $(document).ready(function () {
       var mymap = L.map('mapid').setView([5.312453, 100.293362], 12.5);
       //ARRAY Order ---> [RSE(0), SS(1), ISL(2), HS(3), RS(4)]
       //RIV@RIVN
-      var circle = L.circle([5.316977,100.296591], {
-        color: 'red', //border color
-        fillColor: '#f03', //background color
-        fillOpacity: 0.5,
-        radius: score[4]*3,
-      }).addTo(mymap).bindPopup('Plexus ATC/Riverside: ' + score[4]);
+      var circle = L.marker([5.316977,100.296591]).addTo(mymap).bindPopup('Plexus ATC/Riverside: ' + score[4]);
       //RIVEast
-      var circle = L.circle([5.314803,100.298555], {
-        color: 'red', //border color
-        fillColor: '#f03', //background color
-        fillOpacity: 0.5,
-        radius: score[0]*3,
-      }).addTo(mymap).bindPopup('Plexus Riverside East: ' + score[0]);
+      var circle = L.marker([5.314803,100.298555]).addTo(mymap).bindPopup('Plexus Riverside East: ' + score[0]);
       //Hillside
-      var circle = L.circle([5.313051,100.282676], {
-        color: 'red', //border color
-        fillColor: '#f03', //background color
-        fillOpacity: 0.5,
-        radius: score[3]*3,
-      }).addTo(mymap).bindPopup('Plexus Hillside: ' + score[3]);
+      var circle = L.marker([5.313051,100.282676]).addTo(mymap).bindPopup('Plexus Hillside: ' + score[3]);
       //Islandview
-      var circle = L.circle([5.306770,100.296109], {
-        color: 'red', //border color
-        fillColor: '#f03', //background color
-        fillOpacity: 0.5,
-        radius: score[2]*3,
-      }).addTo(mymap).bindPopup('Plexus Islandview: ' + score[2]);
+      var circle = L.marker([5.306770,100.296109]).addTo(mymap).bindPopup('Plexus Islandview: ' + score[2]);
       //Seaside
-      var circle = L.circle([5.303522, 100.29633], {
-        color: 'red', //border color
-        fillColor: '#f03', //background color
-        fillOpacity: 0.5,
-        radius: score[1]*3,
-      }).addTo(mymap).bindPopup('Plexus Seaside: ' + score[1]);
+      var circle = L.marker([5.303522, 100.29633]).addTo(mymap).bindPopup('Plexus Seaside: ' + score[1]);
       
     
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -69,3 +44,14 @@ $(document).ready(function () {
   })
 }
 )
+
+
+//--------------------------CIRCLE MARKER
+// var circle = L.circle([5.303522, 100.29633], {
+//   color: 'red', //border color
+//   fillColor: '#f03', //background color
+//   fillOpacity: 0.5,
+//   radius: score[1]*3,
+// }).addTo(mymap).bindPopup('Plexus Seaside: ' + score[1]);
+
+
