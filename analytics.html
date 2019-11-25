@@ -81,7 +81,7 @@
               <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="page_status.html">Request Status</a>
+              <a class="nav-link text-white" href="page_status.php">Request Status</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="analytics.html">KPI</a>
@@ -95,59 +95,89 @@
 
 
 
-    <!---------------------------------
-                    Row 1
-      --------------------------------->
-    <div class="container-fluid mb-3">
-      <p class="m-1 text-center" style="font-size: 30px; font-family: 'Patua One', cursive;">Key Performance Index</p>
-      <hr>
-      <!-- <p class="m-1" style="font-size: 20px; font-family: 'Patua One', cursive;">Calibration Job Request</p> -->
-      <div class="row m-1 ">
-          <div class="col-sm-4 color-border">
-            <!-- <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Total Job Request (Last 30 days)</p> -->
-            <div id="chart"></div>
-          </div>
-          <!-- <div class="col-sm-3 color-border">
-            <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Total Job Request By Location</p>
-            <div id="chart2"></div>
-          </div> -->
-          <div class="col-sm-4 color-border">
-            <!-- <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Job Status</p> -->
-            <div id="chart3"></div>
-          </div>
-          <div class="col-sm-4 color-border">
-            <!-- <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Job Status</p> -->
-            <div id="chart3_row2"></div>
-          </div>
-      </div>
-      <hr>
-      <!-------------------------
-              Row 2
-       ------------------------->
-       
-      <!-- <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive;">Calibration Cost</p> -->
-      <div class="row m-1 ">
-          <div class="col-sm-6 color-border">
-            <div id="chart1_row2"></div>
-          </div>
-          <div class="col-sm-6 color-border">
-            <div id="chart2_row2"></div>
-          </div>
-      </div>
+      <!---------------------------------
+                      Row 1
+        --------------------------------->
+      <div class="container-fluid mb-3">
+        <p class="m-1 text-center" style="font-size: 30px; font-family: 'Patua One', cursive;">Key Performance Index</p>
+        <hr>
+        <!-- <p class="m-1" style="font-size: 20px; font-family: 'Patua One', cursive;">Calibration Job Request</p> -->
+        <div class="row m-1 ">
+            <div class="col-sm-4 color-border">
+              <!-- <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Total Job Request (Last 30 days)</p> -->
+              <div id="chart"></div>
+            </div>
+            <!-- <div class="col-sm-3 color-border">
+              <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Total Job Request By Location</p>
+              <div id="chart2"></div>
+            </div> -->
+            <div class="col-sm-4 color-border">
+              <!-- <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Job Status</p> -->
+              <div id="chart3"></div>
+            </div>
+            <div class="col-sm-4 color-border">
+              <!-- <p class="m-1" style="font-size: 15px; font-family: 'Roboto', sans-serif; color: grey">Job Status</p> -->
+              <div id="chart3_row2"></div>
+            </div>
+        </div>
+        <hr>
+        <!-------------------------
+                Row 2
+        ------------------------->
+        
+        <!-- <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive;">Calibration Cost</p> -->
+        <div class="row m-1 ">
+            <div class="col-sm-6 color-border">
+              <div id="chart1_row2"></div>
+            </div>
+            <div class="col-sm-6 color-border">
+              <div id="chart2_row2"></div>
+            </div>
+        </div>
 
-      <hr>
-      <!-------------------------
-              Row 3
-      ------------------------->
-      <!-- <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive;">Inventory</p> -->
-      <div class="row m-1  ">
-          <div class="col-md-6 color-border">
-            <p class="pl-4">Inventory Type</p>
+        <hr>
+        <!-------------------------
+                Row 3
+        ------------------------->
+        <!-- <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive;">Inventory</p> -->
+        <div class="row m-1  ">
+            <div class="col-md-6 color-border">
+              <p class="" style="padding-left: 100px">Calibration Cost by Instrument Type</p>
+                <div id="chart2_row3" class="mx-5"></div>
+            </div>
+            <div class="col-md-6 color-border">
+              <!-- <div id="">Under construction</div> -->
+              <p class="" style="padding-left: 190px">Inventory Type</p>
               <div id="chart1_row3" class="mx-5"></div>
+              
+              
+            </div>
+        </div>
+        <hr>
+        <!-------------------------
+            Row 4
+        ------------------------->
+        <!-- <p class="m-1" style="font-size: 15px; font-family: 'Patua One', cursive;">Inventory</p> -->
+        <div class="row m-1  ">
+          <div class="col-md-6 color-border">
+            <p style="padding-left: 150px">Top Calibrated Instrument</p>
+              <!-- table2 --------------------------------------------------->
+            <table class="table table-sm mt-0 text-center">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Item Description</th>
+                  <th scope="col">Frequent</th>
+                </tr>
+              </thead>
+              <tbody id="tableContent2">
+                <!-- data here -->
+              </tbody>
+            </table>
           </div>
           <div class="col-md-6 color-border">
             <!-- <div id="">Under construction</div> -->
-            <p class="pl-4">Leaderboards</p>
+            <p style="padding-left: 150px">Top Requestor</p>
             <!-- table1 --------------------------------------------------->
             <table class="table table-sm mb-0 text-center">
               <thead class="thead-dark">
@@ -161,28 +191,16 @@
                 <!-- data here -->
               </tbody>
             </table>
-            <!-- table2 --------------------------------------------------->
-            <table class="table table-sm mt-0 text-center">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Item Description</th>
-                    <th scope="col">Frequent</th>
-                  </tr>
-                </thead>
-                <tbody id="tableContent2">
-                  <!-- data here -->
-                </tbody>
-              </table>
             
           </div>
-          
+        
+          <hr>
 
-      </div>
+  </div>
 
       <!-- <hr> -->
       <!-------------------------
-              Row 4
+              Row 5
       ------------------------->
       <!-- <br> -->
       <!-- <p class="m-1 text-center" style="font-size: 15px; font-family: 'Patua One', cursive;">Upload your own data</p> 

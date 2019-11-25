@@ -42,7 +42,7 @@
               <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="page_status.html">Request Status</a>
+              <a class="nav-link text-white" href="page_status.php">Request Status</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="analytics.html">KPI</a>
@@ -62,8 +62,17 @@
 
       <div class="container">
         <h3 class="text-center mt-3" style="font-family: 'Patua One', cursive;">Calibration Request Status</h3>
-        <a href="AddRequest.html" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add New Request</a>
-        <table class="table table-sm table-condensed  table-bordered mt-3" style="border-collapse:collapse;font-size: 14px">
+        <hr>
+        <div class="row">
+          <div class="col-sm-6">
+              <a href="AddRequest.php" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add New Request</a>
+          </div>
+          <div class="col-sm-6 text-right">
+              <span>Search by EIN: <input type="text" id="myInput" onkeyup="myFunction()" placeholder="4643745"></span>
+          </div>
+        </div>
+        
+        <table id=mytablepop class="table table-sm table-condensed  table-bordered mt-3" style="border-collapse:collapse;font-size: 14px">
           <thead>
               <tr class="table-warning text-center" style="font-family: 'Helvetica', sans-serif;">
                   <th>ID</th>
@@ -72,6 +81,7 @@
                   <th>Date Created</th>
                   <th>Site Code</th>
                   <th>Status</th>
+                  <th>Action</th>
               </tr>
           </thead>
           <tbody id="formAll">
@@ -108,9 +118,37 @@
     
     
     <script>
-      $('.collapse').on('show.bs.collapse', function () {
+    $('.collapse').on('show.bs.collapse', function () {
         $('.collapse.in').collapse('hide');
     });
+
+
+
+    function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("mytablepop");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+    }
+
+
+
+
     </script>
     <!-- Optional JavaScript -->
     <script src="plugin/Chart.js-2.8.0/dist/Chart.bundle.js"></script>

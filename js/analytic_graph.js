@@ -445,7 +445,7 @@ $(document).ready(function () {
                 width: 200
               },
               legend: {
-                position: 'bottom'
+                position: 'top'
               }
             }
           }]
@@ -460,59 +460,123 @@ $(document).ready(function () {
 })
 
 
+//------------------------------------
+//              Row 3 | Chart 2
+//------------------------------------
+$(document).ready(function () {
+  $.ajax({
+    url: "http://localhost/plexus_dashboard/analytics_php/row2_C4.php",
+    method: "GET",
+    success: function (data) {
+      //console.log(data);
+      var type = [];
+      var data_type = [];
+      
+
+      for (var i in data) {
+        type.push(data[i]['type']);
+        data_type.push(data[i]['ROUND(sum(calCost),2)']);
+        
+      }
+      var numbers = data_type.map(Number);
+      //console.log(numbers);
+      //console.log(data_type);
+      // Since the array generated is in string, .map(Number) is used for integer conversion.
+      // console.log(data_type);
+      var options = {
+          
+          chart: {
+            //width: 380,
+            type: 'pie',
+          },
+          labels: ["Electrical", "Temperature", "Mechanical", "Unknown"],
+          series: numbers,
+          responsive: [{
+            breakpoint: 480,
+            options: {
+              title: {
+                text: "Cost Savings By Type",
+                align: "left"
+              },
+              chart: {
+                width: 200
+              },
+              legend: {
+                position: 'top'
+              },
+              tooltip: {
+                y: {
+                  formatter: function (val) {
+                    return "$ " + val 
+                  }
+                }
+              }
+            }
+          }]
+      }
+
+      var chart = new ApexCharts(document.querySelector("#chart2_row3"), options);
+
+      chart.render();
+
+    }
+  })
+})
+
+
     // ------------------------------------
     //              Row 3 | Chart 1
     //------------------------------------
-    $(document).ready(function () {
-      $.ajax({
-        url: "http://localhost/plexus_dashboard/analytics_php/row3_c2.php",
-        method: "GET",
-        success: function (data) {
-          //console.log(data);
-          var type = [];
-          var data_type = [];
+    // $(document).ready(function () {
+    //   $.ajax({
+    //     url: "http://localhost/plexus_dashboard/analytics_php/row3_c2.php",
+    //     method: "GET",
+    //     success: function (data) {
+    //       //console.log(data);
+    //       var type = [];
+    //       var data_type = [];
 
 
-          for (var i in data) {
-            type.push(data[i]['type']);
-            data_type.push(data[i]['count(type)']);
+    //       for (var i in data) {
+    //         type.push(data[i]['type']);
+    //         data_type.push(data[i]['count(type)']);
 
-          }
-          var numbers = data_type.map(Number);
-          console.log(numbers);
-          // Since the array generated is in string, .map(Number) is used for integer conversion.
-          // console.log(data_type);
-          var options = {
-            title: {
-              text: "Inventory Type ",
-              align: "left"
-            },
-            chart: {
-              width: 380,
-              type: 'pie',
-            },
-            labels: type,
-            series: numbers,
-            responsive: [{
-              breakpoint: 480,
-              options: {
-                chart: {
-                  width: 200
-                },
-                legend: {
-                  position: 'bottom'
-                }
-              }
-            }]
-          }
+    //       }
+    //       var numbers = data_type.map(Number);
+    //       console.log(numbers);
+    //       // Since the array generated is in string, .map(Number) is used for integer conversion.
+    //       // console.log(data_type);
+    //       var options = {
+    //         title: {
+    //           text: "Inventory Type ",
+    //           align: "left"
+    //         },
+    //         chart: {
+    //           width: 380,
+    //           type: 'pie',
+    //         },
+    //         labels: type,
+    //         series: numbers,
+    //         responsive: [{
+    //           breakpoint: 480,
+    //           options: {
+    //             chart: {
+    //               width: 200
+    //             },
+    //             legend: {
+    //               position: 'bottom'
+    //             }
+    //           }
+    //         }]
+    //       }
 
-          var chart = new ApexCharts(document.querySelector("#chart2_row3"), options);
+    //       var chart = new ApexCharts(document.querySelector("#chart2_row3"), options);
 
-          chart.render();
+    //       chart.render();
 
-        }
-      })
-    })
+    //     }
+    //   })
+    // })
 
 
 

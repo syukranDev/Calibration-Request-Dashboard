@@ -105,7 +105,7 @@ $.post('homepage_calRequestForm.php', function(data) {
                             "<td>" + item.ein_number + "</td>" +
                             "<td>" + item.instrumentDesc+ "</td>" +
                             "<td>" + item.dateReceived + "</td>" +
-                            "<td>" + "<span class=\"statusColor\" style=\" font-style: italic;\">" +  item.status + "</span>" + "</td>" +
+                            "<td>" + "<span class=\"statusColor text-center\" style=\" font-style: italic;\">" +  item.status + "</span>" + "</td>" +
                             "</tr>"
                             );
   });
@@ -181,6 +181,7 @@ $.post('requestForm_table.php', function(data) {
                             "<td class=\"text-center\">" + item.dateReceived        +"</td>" +
                             "<td class=\"text-center\">" + item.siteCode            +"</td>" +
                             "<td class=\"text-success text-center\">" + "<span class=\"statusColor\" style=\" font-style: italic;\">" + item.status + "</span>" + "</td>" +
+                            "<td class=\"text-center\">" + "<a href=\"update_request.php?id=<?php echo escape($row[\"id\"]); ?>" + "Edit</a>" + "</td>" +
                             "</tr>" +
                               "<tr>" +
                                 "<td colspan=6 class=\"hiddenRow\">" +

@@ -1,4 +1,3 @@
-
 <?php
 //setting header to json
 header('Content-Type: application/json');
@@ -17,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT * FROM myplexus.myplexus_data order by id DESC LIMIT 30;");
+$query = sprintf("SELECT type, ROUND(sum(calCost),2) FROM myplexus.myplexus_data group by type;");
 
 
 
