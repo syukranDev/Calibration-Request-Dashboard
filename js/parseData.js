@@ -49,6 +49,13 @@ $.post('fetch_calCost.php', function (data) {
   });
 });
 
+// ----------------------Pending Ship Data-------------------------- //
+$.post('pendingshipping.php', function (data) {
+  $.each(data, function (i, item) {
+    $("#pendingCounter").append(" " + item.pendingShipCount);
+  });
+});
+
 // ----------------------Top Cost Savings by Item Data-------------------------- //
 $.post('topsales_by_item.php', function (data) {
     // console.log(data);
@@ -170,38 +177,38 @@ $.post('analytics_php/row3_c3.php', function(data) {
 
 //----------------------Fetch Table Cal Data (Request Status tab) -------------------------- //
 
-$.post('requestForm_table.php', function(data) {
-  $.each(data, function(i, item) {
-    //calStatus = item.status;
+// $.post('requestForm_table.php', function(data) {
+//   $.each(data, function(i, item) {
+//     //calStatus = item.status;
     
-    $("#formAll").append("<tr id=\"highlight\" data-toggle=\"collapse\" data-target=\".childData"+i+"\">" +
-                            "<td class=\"text-center\">" + item.id             +"</td>" +
-                            "<td class=\"text-center\">" + item.ein_number           +"</td>" +
-                            "<td class=\"pl-4\">" + item.instrumentDesc      +"</td>" +
-                            "<td class=\"text-center\">" + item.dateReceived        +"</td>" +
-                            "<td class=\"text-center\">" + item.siteCode            +"</td>" +
-                            "<td class=\"text-success text-center\">" + "<span class=\"statusColor\" style=\" font-style: italic;\">" + item.status + "</span>" + "</td>" +
-                            "<td class=\"text-center\">" + "<a href=\"update_request.php?id=<?php echo escape($row[\"id\"]); ?>" + "Edit</a>" + "</td>" +
-                            "</tr>" +
-                              "<tr>" +
-                                "<td colspan=6 class=\"hiddenRow\">" +
-                                    "<div class=\"collapse childData"+ i + " ml-5\" style=\"font-size: 13px\">" +
-                                      "<div class=\"row\">" +
-                                          "<div class=\"col-4\">" + "Calibration Job: " + "<span class=\"text-success\">" + item.status  + "</span>"   + "</div>" +
-                                          "<div class=\"col-4\">" + "Date Received: "           + item.dateReceived   + "</div>" +
-                                          "<div class=\"col-4\">" + "Serial Number: "   + item.serialNum      + "</div>" +
-                                      "</div>" +
-                                      "<div class=\"row\">" +
-                                          "<div class=\"col-4\">" + "Owner: "   + item.owner +  "</div>" +
-                                          "<div class=\"col-4\">" + "Date Completed: " + item.dateCompleted      + "</div>" +
-                                          "<div class=\"col-4\">" + "Manufacturer: "     + item.manufacturer + "</div>" +
-                                      "</div>" +
-                                    "</div>" +
-                                "</td>" +
-                            "</tr>"
-      );
-  });
-});
+//     $("#formAll").append("<tr id=\"highlight\" data-toggle=\"collapse\" data-target=\".childData"+i+"\">" +
+//                             "<td class=\"text-center\">" + item.id             +"</td>" +
+//                             "<td class=\"text-center\">" + item.ein_number           +"</td>" +
+//                             "<td class=\"pl-4\">" + item.instrumentDesc      +"</td>" +
+//                             "<td class=\"text-center\">" + item.dateReceived        +"</td>" +
+//                             "<td class=\"text-center\">" + item.siteCode            +"</td>" +
+//                             "<td class=\"text-success text-center\">" + "<span class=\"statusColor\" style=\" font-style: italic;\">" + item.status + "</span>" + "</td>" +
+//                             "<td class=\"text-center\"> " + "</td>" +
+//                             "</tr>" +
+//                               "<tr>" +
+//                                 "<td colspan=6 class=\"hiddenRow\">" +
+//                                     "<div class=\"collapse childData"+ i + " ml-5\" style=\"font-size: 13px\">" +
+//                                       "<div class=\"row\">" +
+//                                           "<div class=\"col-4\">" + "Calibration Job: " + "<span class=\"text-success\">" + item.status  + "</span>"   + "</div>" +
+//                                           "<div class=\"col-4\">" + "Date Received: "           + item.dateReceived   + "</div>" +
+//                                           "<div class=\"col-4\">" + "Serial Number: "   + item.serialNum      + "</div>" +
+//                                       "</div>" +
+//                                       "<div class=\"row\">" +
+//                                           "<div class=\"col-4\">" + "Owner: "   + item.owner +  "</div>" +
+//                                           "<div class=\"col-4\">" + "Date Completed: " + item.dateCompleted      + "</div>" +
+//                                           "<div class=\"col-4\">" + "Manufacturer: "     + item.manufacturer + "</div>" +
+//                                       "</div>" +
+//                                     "</div>" +
+//                                 "</td>" +
+//                             "</tr>"
+//       );
+//   });
+// });
 
 
 

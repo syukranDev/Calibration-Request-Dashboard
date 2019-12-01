@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
       "instrumentDesc"          => $_POST['instrumentDesc'],
       "manufacturer"            => $_POST['manufacturer'],
       "model"                   => $_POST['model'],
-      "serialNum"               => $_POST['serialNumb'],
+      "serialNum"               => $_POST['serialNum'],
       "calInt"                  => $_POST['calInt'],
       "owner_original"          => $_POST['owner_original'],
       "siteCode"                => $_POST['siteCode'],
@@ -140,50 +140,60 @@ if (isset($_GET['id'])) {
     <!----------------
       Navbar
       ---------------->
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <a class="navbar-brand" href="#"><img src="static/img/plexus_favicon.png" width="30" height="30" class="d-inline-block align-top rounded" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="page_status.html">Request Status</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="documentation.html">Documentation</a>
-                </li>
-              </ul>
-              <span class="navbar-text text-white">
-                Calibration Status Dashboard
-              </span>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark" >
+        <a class="navbar-brand" href="#"><img src="static/img/plexus_favicon.png" width="30" height="30" class="d-inline-block align-top rounded" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText" >
+          <ul class="navbar-nav mr-auto" style="font-size: 14px">
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="page_status.php">Request Status</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="analytics.html">KPI</a>
+            </li>
+          </ul>
+          <span class="navbar-text text-white" style="font-family: 'Merriweather', serif;">
+            Calibration Status Dashboard
+          </span>
+        </div>
+      </nav>
 
 
 <!-- END -->
 
 
 
+<div class="container">
+  <div class="text-center">
+      <?php if (isset($_POST['submit']) && $statement) : ?>
+      <span class="text-success">ID:<?php echo escape($_POST['id']); ?> successfully updated.</span>
+      <?php endif; ?>
+  </div>
 
-<?php if (isset($_POST['submit']) && $statement) : ?>
-  <?php echo escape($_POST['ein_number']); ?> successfully updated.
-<?php endif; ?>
+  <h3 class="text-center mt-3" style="font-family: 'Patua One', cursive;">Calibration Request Status Form (ID: )</h3>
+  <hr>
 
-<h2>Edit a user</h2>
+  <form class="ml-5 mt-4" method="post">
+        <?php foreach ($user as $key => $value) : ?>
+        <div class="form-group row justify-content-left">
+        <label class="col-sm-3 col-form-label col-form-label-sm" for="colFormLabelSm <?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
+        <div class="col-sm-3">
+        <input class="form-control  form-control-sm" type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
+        </div>
+        </div>
+        <?php endforeach; ?>
 
-<form method="post">
-    <?php foreach ($user as $key => $value) : ?>
-      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-      <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
-    <?php endforeach; ?>
-    <input type="submit" name="submit" value="Submit">
-</form>
+      <input type="submit" name="submit" value="Submit">
+      <a href="page_status.php">Back to home</a>
 
-<a href="page_status.php">Back to home</a>
+  </form>
+</div> 
+
 
 
 

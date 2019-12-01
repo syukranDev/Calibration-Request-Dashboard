@@ -1,3 +1,24 @@
+<?php
+
+try {
+  require "php_template/config.php";
+  require "php_template/common.php";
+
+  $connection = new PDO($dsn, $username, $password, $options);
+
+  $sql = "SELECT * FROM myplexus.myplexus_data order by id DESC LIMIT 30;";
+
+  $statement = $connection->prepare($sql);
+  $statement->execute();
+
+  $result = $statement->fetchAll();
+} catch(PDOException $error) {
+  echo $sql . "<br>" . $error->getMessage();
+}
+?>
+
+
+
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -68,7 +89,7 @@
               <a href="AddRequest.php" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add New Request</a>
           </div>
           <div class="col-sm-6 text-right">
-              <span>Search by EIN: <input type="text" id="myInput" onkeyup="myFunction()" placeholder="4643745"></span>
+              <span>Search by EIN: <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Example: 1110223"></span>
           </div>
         </div>
         
@@ -85,7 +106,32 @@
               </tr>
           </thead>
           <tbody id="formAll">
-             <!-- table data here -->
+          <?php foreach ($result as $row) : ?>
+                  <tr id="highlight" data-toggle="collapse" data-target=".childData<?php echo escape($row["id"]); ?>"> 
+                  <td class="text-center"><?php echo escape($row["id"]); ?></td>
+                  <td class="text-center"><?php echo escape($row["ein_number"]); ?></td>
+                  <td class="pl-4"><?php echo escape($row["instrumentDesc"]); ?></td>
+                  <td class="text-center"><?php echo escape($row["dateReceived"]); ?></td>
+                  <td class="text-center"><?php echo escape($row["siteCode"]); ?></td>
+                  <td class="text-success text-center"><span class="statusColor" style=" font-style: italic;"><?php echo escape($row["status"]); ?></span></td>
+                  <td class="text-center"><a href="update-single.php?id=<?php echo escape($row["id"]); ?>">Edit</a></td>
+                    <tr> 
+                      <td colspan=7 class="hiddenRow">
+                          <div class="collapse ml-5 childData<?php echo escape($row["id"]); ?>" style="font-size: 13px">
+                            <div class="row">
+                                <div class="col-4">Calibration Job: <span class="text-success"><?php echo escape($row["status"]); ?></span></div>
+                                <div class="col-4">Date Received: <?php echo escape($row["dateReceived"]); ?></div>
+                                <div class="col-4">Serial Number: <?php echo escape($row["serialNum"]); ?></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Owner: <?php echo escape($row["owner"]); ?></div>
+                                <div class="col-4">Date Completed:  <?php echo escape($row["dateComplete"]); ?></div>
+                                <div class="col-4">Manufacturer: <?php echo escape($row["manufacturer"]); ?></div>
+                            </div>
+                          </div> 
+                      </td>
+                  </tr>
+          <?php endforeach; ?>
           </tbody>
       </table>
       </div>

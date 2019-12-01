@@ -112,10 +112,10 @@ if (isset($_POST['submit'])) {
                   <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="page_status.html">Request Status</a>
+                  <a class="nav-link text-white" href="page_status.php">Request Status</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="documentation.html">Documentation</a>
+                  <a class="nav-link text-white" href="analytics.html">Request Status</a>
                 </li>
               </ul>
               <span class="navbar-text text-white">
