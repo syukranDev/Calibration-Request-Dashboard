@@ -436,7 +436,7 @@ $(document).ready(function () {
             //width: 380,
             type: 'pie',
           },
-          labels: ["Electrical", "Temperature", "Mechanical"],
+          labels: ["Mechanical","Electrical", "Temperature"],
           series: numbers,
           responsive: [{
             breakpoint: 480,
@@ -489,7 +489,7 @@ $(document).ready(function () {
             //width: 380,
             type: 'pie',
           },
-          labels: ["Electrical", "Temperature", "Mechanical", "Unknown"],
+          labels: ["Mechanical", "Electrical", "Temperature", "Unknown"],
           series: numbers,
           responsive: [{
             breakpoint: 480,

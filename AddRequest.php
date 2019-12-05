@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
       "manufacturer"            => $_POST['manufacturer'],
       "model"                   => $_POST['model'],
       "serialNum"               => $_POST['serialNum'],
-      "calInt"                  => $_POST['calInt'],
+      // "calInt"                  => $_POST['calInt'],
       "owner_original"          => $_POST['owner_original'],
       "siteCode"                => $_POST['siteCode'],
       "project"                 => $_POST['project'],
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
       "dateReceived"            => $_POST['dateReceived'],
       "owner"                   => $_POST['owner'],
       "dateReceived_original"   => $_POST['dateReceived_original'],
-      "dateComplete"            => $_POST['dateComplete'],
+      "dateCompleted"            => $_POST['dateCompleted'],
       "calJob"                  => $_POST['calJob'],
       "lab_onsite"              => $_POST['lab_onsite'],
       "incomingShip"            => $_POST['incomingShip'],
@@ -101,28 +101,29 @@ if (isset($_POST['submit'])) {
     <!----------------
       Navbar
       ---------------->
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <a class="navbar-brand" href="#"><img src="static/img/plexus_favicon.png" width="30" height="30" class="d-inline-block align-top rounded" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="page_status.php">Request Status</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="analytics.html">Request Status</a>
-                </li>
-              </ul>
-              <span class="navbar-text text-white">
-                Calibration Status Dashboard
-              </span>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark" >
+        <a class="navbar-brand" href="#"><img src="static/img/plexus_favicon.png" width="30" height="30" class="d-inline-block align-top rounded" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText" >
+          <ul class="navbar-nav mr-auto" style="font-size: 14px">
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="page_status.php">Request Status</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="analytics.html">KPI</a>
+            </li>
+          </ul>
+          <span class="navbar-text text-white" style="font-family: 'Merriweather', serif;">
+            Calibration Status Dashboard
+          </span>
+        </div>
+      </nav>
+
 
 
 <!-- END----------------------------------------------------------------------------- -->
@@ -140,11 +141,12 @@ if (isset($_POST['submit'])) {
 
 
       <form class="ml-5 mt-4"  method="post">
+          <p class="font-italic text-secondary"><small>Leave blank where necessary</small></p>
           
                  <div class="form-group row justify-content-left">
                   <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Date Created</label>
                   <div class="col-sm-3">
-                    <input class="form-control  form-control-sm" id="disabledInput" name="dateReceived" type="" placeholder="<?php echo date("m/d/Y"); ?>" disabled>
+                    <input class="form-control  form-control-sm" id="" name="dateReceived" value="<?php echo date("m/d/Y"); ?>" placeholder="<?php echo date("m/d/Y"); ?>" disabled>
                   </div>
                 </div>
 
@@ -217,12 +219,12 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
 
-                <div class="form-group row justify-content-left">
+                <!-- <div class="form-group row justify-content-left">
                     <label for="#" class="col-sm-3 col-form-label col-form-label-sm">Cal Interval</label>
                     <div class="col-sm-3">
                         <input type="" class="form-control form-control-sm" id="CalInt" name="calInt" placeholder="Example: 6">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group row justify-content-left">
                     <label for="#" class="col-sm-3 col-form-label col-form-label-sm">Site Code</label>
@@ -264,7 +266,7 @@ if (isset($_POST['submit'])) {
                 <div class="form-group row justify-content-left">
                     <label for="#" class="col-sm-3 col-form-label col-form-label-sm">Project</label>
                     <div class="col-sm-3">
-                        <input type="email" class="form-control form-control-sm" id="project" name="project" placeholder="">
+                        <input type="" class="form-control form-control-sm" id="project" name="project" placeholder="">
                     </div>
                 </div>
 
@@ -352,7 +354,7 @@ if (isset($_POST['submit'])) {
                 <div class="form-group row justify-content-left">
                     <label for="#" class="col-sm-3 col-form-label col-form-label-sm">Date Completed</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control form-control-sm" id="dateComplete" name="dateComplete" placeholder="">
+                        <input type="text" class="form-control form-control-sm" id="dateCompleted" name="dateCompleted" placeholder="">
                         <small id="#" class="form-text text-muted">To be updated calibration personnel</small>
                      
                     </div>

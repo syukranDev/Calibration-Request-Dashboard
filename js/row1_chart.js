@@ -17,7 +17,7 @@ $(document).ready(function(){
 			}
 
 			var chartdata = {
-				labels: ["Electrical", "Temperature", "Mechanical"],
+				labels: ["Mechanical","Electrical", "Temperature"],
 				datasets: [
 					{
 						//fill: false,

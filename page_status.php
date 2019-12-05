@@ -125,7 +125,7 @@ try {
                             </div>
                             <div class="row">
                                 <div class="col-4">Owner: <?php echo escape($row["owner"]); ?></div>
-                                <div class="col-4">Date Completed:  <?php echo escape($row["dateComplete"]); ?></div>
+                                <div class="col-4">Date Completed:  <?php echo escape($row["dateCompleted"]); ?></div>
                                 <div class="col-4">Manufacturer: <?php echo escape($row["manufacturer"]); ?></div>
                             </div>
                           </div> 
