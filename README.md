@@ -6,7 +6,8 @@ This is a project that I develop in order to complete the requirement of my univ
 Generally, the dashboard consists of key metrics that significants to review the performance of any services. In this case, it was used to monitor the performance of Calibration Services at my host company. It was deploy on a local server of my personal desktop, thus, any dummy data/passwords used throughout this development aint genuine and does not belong to any particular person/company.
 
 
-![11111](https://user-images.githubusercontent.com/51852197/70384319-f9454f00-19b7-11ea-8ff6-03a3afb527c8.png)
+![screencapture-localhost-plexus-dashboard-2019-12-03-22_54_26](https://user-images.githubusercontent.com/51852197/70384368-87b9d080-19b8-11ea-90c8-fe08d4a677bb.png)
+
 
 
 
