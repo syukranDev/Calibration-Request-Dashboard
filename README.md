@@ -7,8 +7,7 @@ Generally, the dashboard consists of key metrics that significants to review the
 
 
 ![screencapture-localhost-plexus-dashboard-2019-12-03-22_54_26](https://user-images.githubusercontent.com/51852197/70384368-87b9d080-19b8-11ea-90c8-fe08d4a677bb.png)
-
-
+![screencapture-localhost-plexus-dashboard-analytics-html-2019-12-03-22_58_01](https://user-images.githubusercontent.com/51852197/70384433-40800f80-19b9-11ea-9efa-b3a7c2120aba.png)
 
 
 # License
